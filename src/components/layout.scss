@@ -620,3 +620,12 @@ pre tt:after {
     font-size: 100%;
   }
 }
+
+
+.sidebar {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  flex-direction: row;
+  min-height: 100vh;
+}
