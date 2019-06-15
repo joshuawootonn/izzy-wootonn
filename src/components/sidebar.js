@@ -7,7 +7,7 @@ import styled from "styled-components"
 import ProfileImage from "./image"
 
 const StyledSidebar = styled.div`
-  background: rebeccapurple;
+  background: ${props => props.theme.color};
   margin-bottom: 1.45rem;
   width: 300px;
   height: 100vh;
