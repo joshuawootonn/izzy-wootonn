@@ -1,14 +1,22 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
 import React from "react"
+import PropTypes from "prop-types"
 
-import './sidebar.scss';
+import { Link} from "gatsby"
+import styled from "styled-components"
+
+import ProfileImage from "./image"
+
+const StyledSidebar = styled.div`
+  background: rebeccapurple;
+  margin-bottom: 1.45rem;
+  width: 300px;
+  height: 100vh;
+  position: fixed;
+`
 
 const Sidebar = ({ siteTitle }) => (
-  <sidebar
-    className="sidebar"
-  >
-    <h1 style={{ margin: 0 }}>
+  <StyledSidebar className="sidebar">
+    <h1>
       <Link
         to="/"
         style={{
@@ -17,9 +25,28 @@ const Sidebar = ({ siteTitle }) => (
         }}
       >
         {siteTitle}
+        <ProfileImage />
       </Link>
     </h1>
-  </sidebar>
+    <Link
+      to="/about/"
+      style={{
+        color: `white`,
+        textDecoration: `none`,
+      }}
+    >
+      About
+    </Link>
+    <Link
+      to="/contact/"
+      style={{
+        color: `white`,
+        textDecoration: `none`,
+      }}
+    >
+      Contact
+    </Link>
+  </StyledSidebar>
 )
 
 Sidebar.propTypes = {

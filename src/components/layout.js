@@ -1,17 +1,21 @@
-/**
- * Layout component that queries for data
- * with Gatsby's StaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/static-query/
- */
-
 import React from "react"
 import PropTypes from "prop-types"
+
+import styled from 'styled-components';
 import { StaticQuery, graphql } from "gatsby"
 
 import Sidebar from "./sidebar"
 import Content from './content'
-import "./layout.scss"
+
+const Wrapper = styled.div`
+
+display: flex;
+margin: 0;
+padding: 0;
+flex-direction: row;
+min-height: 100vh;
+
+`
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -25,10 +29,10 @@ const Layout = ({ children }) => (
       }
     `}
     render={data => (
-      <div className="layout">
+      <Wrapper>
         <Sidebar siteTitle={data.site.siteMetadata.title} />
         <Content children={children} /> 
-      </div>
+      </Wrapper>
     )}
   />
 )
