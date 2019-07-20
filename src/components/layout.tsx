@@ -1,11 +1,11 @@
-import React from "react"
+import React from 'react';
 
-import styled, { ThemeProvider, createGlobalStyle } from "styled-components"
-import { StaticQuery, graphql } from "gatsby"
+import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
+import { StaticQuery, graphql } from 'gatsby';
 
-import Sidebar from "./sidebar"
-import Content from "./content"
-import { Theme } from "../constants/types";
+import Sidebar from './sidebar';
+import Content from './content';
+import { Theme } from '../constants/types';
 
 const GlobalStyles = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
@@ -21,7 +21,7 @@ const GlobalStyles = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: themegrayscale;
   }
-`
+`;
 
 const theme: Theme = {
   colors: {
@@ -31,8 +31,8 @@ const theme: Theme = {
     black: '#2D232E',
     white: '#ffffff',
     grey: '#C49799',
-  }
-}
+  },
+};
 
 const Wrapper = styled.div`
   display: flex;
@@ -40,10 +40,10 @@ const Wrapper = styled.div`
   padding: 0;
   flex-direction: row;
   min-height: 100vh;
-`
+`;
 
 export interface Props {
-  children: React.ReactElement | React.ReactElement[]
+  children: React.ReactElement | React.ReactElement[];
 }
 
 const Layout = ({ children }: Props) => (
@@ -67,6 +67,6 @@ const Layout = ({ children }: Props) => (
       </ThemeProvider>
     )}
   />
-)
+);
 
-export default Layout
+export default Layout;

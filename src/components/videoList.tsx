@@ -1,6 +1,7 @@
-import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
+import React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
 import { Video } from '../constants/types';
+import styled from 'styled-components';
 
 const query = graphql`
   {
@@ -18,24 +19,39 @@ const query = graphql`
       }
     }
   }
-`
+`;
+
+const EmbeddedVideo = styled.iframe`
+  height: 540px;
+  width: 960px;
+  border: 0px;
+`;
 
 const VideoComponent = () => {
-  const data = useStaticQuery(query)
+  const data = useStaticQuery(query);
   const videos: Video[] = data.allVimeoVideo.nodes;
-  console.log("TCL: Video -> data", videos)
-   
-  return <div>{videos.map((video: Video) => {
-    console.log(video.url.replace('https://', 'https://player.').replace('.com/','.com/video/'));
-   return (
-    <iframe 
-    style={{ width: '500px', height: '250px', border: 'none' }} 
-    title={video.title} 
-    allow="autoplay; fullscreen" 
-    src={video.url.replace('https://', 'https://player.').replace('.com/','.com/video/')}    
-     />
-   )
-  })}</div>
-}
 
-export default VideoComponent
+  return (
+    <div>
+      {videos.map((video: Video) => {
+        console.log(
+          video.url.replace('https://', 'https://player.').replace('.com/', '.com/video/')
+        );
+        return (
+          <div key={video.date}>
+            <EmbeddedVideo
+              title={video.title}
+              allow="autoplay; fullscreen"
+              src={video.url.replace('https://', 'https://player.').replace('.com/', '.com/video/')}
+            />
+
+            <h2>{video.title}</h2>
+            <p>{video.description}</p>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
+export default VideoComponent;

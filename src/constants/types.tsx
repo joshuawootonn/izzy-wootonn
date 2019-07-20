@@ -1,5 +1,3 @@
-
-
 export interface Theme {
   colors: {
     light: string;
@@ -8,11 +6,11 @@ export interface Theme {
     white: string;
     black: string;
     grey: string;
-  }
+  };
 }
 
 export interface StyledThemeProp {
-  theme: Theme
+  theme: Theme;
 }
 
 export interface Video {
@@ -20,7 +18,7 @@ export interface Video {
   title: string;
   thumbnail: {
     large: string;
-  }
+  };
   duration: number;
   description: string;
   date: string;

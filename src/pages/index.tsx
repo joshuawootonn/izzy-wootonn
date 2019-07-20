@@ -1,17 +1,17 @@
-import React from "react"
+import React from 'react';
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import VideoList from '../components/videoList'
+import Layout from '../components/layout';
+import SEO from '../components/seo';
+import VideoList from '../components/videoList';
 
 const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Work" />
       <h1>Work</h1>
-      <VideoList/>
+      <VideoList />
     </Layout>
-  )
-}
+  );
+};
 
-export default IndexPage
+export default IndexPage;
