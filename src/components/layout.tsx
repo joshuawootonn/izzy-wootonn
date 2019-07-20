@@ -35,7 +35,7 @@ const Wrapper = styled.div`
 `
 
 export interface Props {
-  children: React.ReactChild
+  children: React.ReactElement | React.ReactElement[]
 }
 
 const Layout = ({ children }: Props) => (

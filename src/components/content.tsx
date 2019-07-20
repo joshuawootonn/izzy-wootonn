@@ -7,7 +7,7 @@ const Wrapper = styled.div`
   width: auto;
 `
 export interface Props {
-  children: React.ReactChild
+  children: React.ReactElement | React.ReactElement[]
 }
 
 const Content = ({ children }: Props) => <Wrapper>{children}</Wrapper>
