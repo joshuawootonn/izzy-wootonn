@@ -1,9 +1,9 @@
 {
   "name": "gatsby-starter-default",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Portfolio website for Izzy Schrock",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "joshuawootonn@gmail.com",
   "dependencies": {
     "@types/node": "^12.6.8",
     "@types/react": "^16.8.23",
@@ -24,6 +24,7 @@
     "gatsby-source-vimeo": "^1.1.8",
     "gatsby-transformer-sharp": "^2.1.21",
     "react": "^16.8.6",
+    "react-copy-to-clipboard": "^5.0.1",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
     "styled-components": "^4.3.1",
@@ -47,14 +48,10 @@
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "lint": "tslint 'src/**/*.{ts,tsx}'",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+    "lint": "tslint 'src/**/*.{ts,tsx}'"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/joshuawootonn/izzy-schrock"
   }
 }

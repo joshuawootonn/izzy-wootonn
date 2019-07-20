@@ -22,8 +22,8 @@ const query = graphql`
 `;
 
 const EmbeddedVideo = styled.iframe`
-  height: 540px;
-  width: 960px;
+  height: 405px;
+  width: 720px;
   border: 0px;
 `;
 
