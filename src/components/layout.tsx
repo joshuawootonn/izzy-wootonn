@@ -1,5 +1,4 @@
 import React from "react"
-import PropTypes from "prop-types"
 
 import styled, { ThemeProvider, createGlobalStyle } from "styled-components"
 import { StaticQuery, graphql } from "gatsby"
@@ -35,7 +34,11 @@ const Wrapper = styled.div`
   min-height: 100vh;
 `
 
-const Layout = ({ children }) => (
+export interface Props {
+  children: React.ReactChild
+}
+
+const Layout = ({ children }: Props) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -57,9 +60,5 @@ const Layout = ({ children }) => (
     )}
   />
 )
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-}
 
 export default Layout

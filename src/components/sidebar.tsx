@@ -1,5 +1,4 @@
 import React from "react"
-import PropTypes from "prop-types"
 
 import * as gatsby from "gatsby"
 import styled from "styled-components"
@@ -21,7 +20,11 @@ const Link = styled(gatsby.Link)`
 
 `
 
-const SidebarComponent = ({ siteTitle }) => (
+export interface Props {
+  siteTitle: string;
+}
+
+const SidebarComponent = ({ siteTitle = '' }: Props) => (
   <Sidebar className="sidebar">
     <h1>
       <Link
@@ -44,12 +47,5 @@ const SidebarComponent = ({ siteTitle }) => (
   </Sidebar>
 )
 
-SidebarComponent.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-SidebarComponent.defaultProps = {
-  siteTitle: ``,
-}
 
 export default SidebarComponent
