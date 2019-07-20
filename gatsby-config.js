@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 module.exports = {
   siteMetadata: {
     title: `Izzy Schrock`,
@@ -27,6 +29,22 @@ module.exports = {
         theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+      },
+    },
+    // {
+    //   resolve: 'gatsby-source-vimeo-all',
+    //   options: {
+    //     clientId: process.env.VIMEO_CLIENT_ID,
+    //     clientSecret: process.env.VIMEO_CLIENT_SECRET,
+    //     accessToken: process.env.VIMEO_ACCESS_TOKEN,
+    //   }
+    // },
+    {
+      resolve: `gatsby-source-vimeo`,
+      options: {
+        clientID: process.env.VIMEO_CLIENT_ID,
+        clientSecret: process.env.VIMEO_CLIENT_SECRET,
+        userID: 1953551,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

@@ -5,6 +5,7 @@ import { StaticQuery, graphql } from "gatsby"
 
 import Sidebar from "./sidebar"
 import Content from "./content"
+import { Theme } from "../constants/types";
 
 const GlobalStyles = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
@@ -18,12 +19,19 @@ const GlobalStyles = createGlobalStyle`
   body {
     margin: 0;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    -moz-osx-font-smoothing: themegrayscale;
   }
 `
 
-const Theme = {
-  color: "pink",
+const theme: Theme = {
+  colors: {
+    light: '#D9B8C4',
+    medium: '#957186',
+    dark: '#703D57',
+    black: '#2D232E',
+    white: '#ffffff',
+    grey: '#C49799',
+  }
 }
 
 const Wrapper = styled.div`
@@ -50,7 +58,7 @@ const Layout = ({ children }: Props) => (
       }
     `}
     render={data => (
-      <ThemeProvider theme={Theme}>
+      <ThemeProvider theme={theme}>
         <Wrapper>
           <GlobalStyles />
           <Sidebar siteTitle={data.site.siteMetadata.title} />
