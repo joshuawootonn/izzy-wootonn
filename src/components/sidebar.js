@@ -1,28 +1,31 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-import { Link} from "gatsby"
+import * as gatsby from "gatsby"
 import styled from "styled-components"
 
 import ProfileImage from "./image"
 
-const StyledSidebar = styled.div`
+const Sidebar = styled.div`
   background: ${props => props.theme.color};
   margin-bottom: 1.45rem;
-  width: 300px;
+  width: 160px;
   height: 100vh;
   position: fixed;
 `
 
-const Sidebar = ({ siteTitle }) => (
-  <StyledSidebar className="sidebar">
+const Link = styled(gatsby.Link)`
+  display: block;
+  color: 'pink';
+  text-decoration: none;
+
+`
+
+const SidebarComponent = ({ siteTitle }) => (
+  <Sidebar className="sidebar">
     <h1>
       <Link
-        to="/"
-        style={{
-          color: `white`,
-          textDecoration: `none`,
-        }}
+        to="/cool image integrationscool image integrations"
       >
         {siteTitle}
         <ProfileImage />
@@ -30,31 +33,23 @@ const Sidebar = ({ siteTitle }) => (
     </h1>
     <Link
       to="/about/"
-      style={{
-        color: `white`,
-        textDecoration: `none`,
-      }}
     >
       About
     </Link>
     <Link
       to="/contact/"
-      style={{
-        color: `white`,
-        textDecoration: `none`,
-      }}
     >
       Contact
     </Link>
-  </StyledSidebar>
+  </Sidebar>
 )
 
-Sidebar.propTypes = {
+SidebarComponent.propTypes = {
   siteTitle: PropTypes.string,
 }
 
-Sidebar.defaultProps = {
+SidebarComponent.defaultProps = {
   siteTitle: ``,
 }
 
-export default Sidebar
+export default SidebarComponent
