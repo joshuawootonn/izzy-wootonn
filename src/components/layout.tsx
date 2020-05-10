@@ -24,49 +24,49 @@ const GlobalStyles = createGlobalStyle`
 `;
 
 const theme: Theme = {
-  colors: {
-    light: '#D9B8C4',
-    medium: '#957186',
-    dark: '#703D57',
-    black: '#2D232E',
-    white: '#ffffff',
-    grey: '#C49799',
-  },
+    colors: {
+        light: '#D9B8C4',
+        medium: '#957186',
+        dark: '#703D57',
+        black: '#2D232E',
+        white: '#ffffff',
+        grey: '#C49799',
+    },
 };
 
 const Wrapper = styled.div`
-  display: flex;
-  margin: 0;
-  padding: 0;
-  flex-direction: row;
-  min-height: 100vh;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    flex-direction: row;
+    min-height: 100vh;
 `;
 
 export interface Props {
-  children: React.ReactElement | React.ReactElement[];
+    children: React.ReactElement | React.ReactElement[];
 }
 
 const Layout = ({ children }: Props) => (
-  <StaticQuery
-    query={graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            title
-          }
-        }
-      }
-    `}
-    render={data => (
-      <ThemeProvider theme={theme}>
-        <Wrapper>
-          <GlobalStyles />
-          <Sidebar siteTitle={data.site.siteMetadata.title} />
-          <Content children={children} />
-        </Wrapper>
-      </ThemeProvider>
-    )}
-  />
+    <StaticQuery
+        query={graphql`
+            query SiteTitleQuery {
+                site {
+                    siteMetadata {
+                        title
+                    }
+                }
+            }
+        `}
+        render={data => (
+            <ThemeProvider theme={theme}>
+                <Wrapper>
+                    <GlobalStyles />
+                    <Sidebar siteTitle={data.site.siteMetadata.title} />
+                    <Content children={children} />
+                </Wrapper>
+            </ThemeProvider>
+        )}
+    />
 );
 
 export default Layout;
