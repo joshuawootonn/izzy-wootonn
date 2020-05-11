@@ -13,10 +13,10 @@ exports.createPages = async function({ actions, graphql }) {
                         date
                     }
                     previous {
-                        id
+                        title
                     }
                     next {
-                        id
+                        title
                     }
                 }
             }
@@ -27,8 +27,12 @@ exports.createPages = async function({ actions, graphql }) {
         const slug = slugify(edge.node.title);
         actions.createPage({
             path: `/film/${slug}`,
-            component: require.resolve(`./src/templates/film.template.tsx`),
-            context: { slug: slug, id: edge.node.id, title: edge.node.title },
+            component: require.resolve(`./src/templates/film.template.js`),
+            context: {
+                id: edge.node.id.toString(),
+                next: edge.next ? `/film/${slugify(edge.next.title)}`: null,
+                previous: edge.previous ? `/film/${slugify(edge.previous.title)}` : null,
+            },
         });
     });
 };
