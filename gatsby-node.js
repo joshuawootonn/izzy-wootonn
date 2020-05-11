@@ -1,7 +1,34 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+const slugify = require('slugify');
 
-// You can delete this file if you're not using it
+exports.createPages = async function({ actions, graphql }) {
+    const { data } = await graphql(`
+        {
+            allVimeoVideo {
+                edges {
+                    node {
+                        id
+                        title
+                        url
+                        description
+                        date
+                    }
+                    previous {
+                        id
+                    }
+                    next {
+                        id
+                    }
+                }
+            }
+        }
+    `);
+
+    data.allVimeoVideo.edges.forEach(edge => {
+        const slug = slugify(edge.node.title);
+        actions.createPage({
+            path: `/film/${slug}`,
+            component: require.resolve(`./src/templates/film.tsx`),
+            context: { slug: slug, id: edge.node.id, title: edge.node.title },
+        });
+    });
+};

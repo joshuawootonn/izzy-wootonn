@@ -1,7 +1,22 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components/macro';
 import { Video } from '../constants/types';
+
+import { Link, navigate } from 'gatsby';
+import slugify from 'slugify';
+const styles = {
+    root: css`
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 20px;
+    `,
+    videoRoot: css``,
+    image: css`
+        width: 100%;
+        height: auto;
+    `,
+};
 
 const query = graphql`
     {
@@ -21,41 +36,34 @@ const query = graphql`
     }
 `;
 
-const EmbeddedVideo = styled.iframe`
-    height: 405px;
-    width: 720px;
-    border: 0px;
-`;
+interface VideoProps {
+    video: Video;
+}
 
-const VideoComponent = () => {
+const VideoComponent: FC<VideoProps> = ({ video }) => (
+    <div
+        css={styles.videoRoot}
+        key={video.date}
+        onClick={() => navigate(`/film/${slugify(video.title)}`)}
+    >
+        <img css={styles.image} src={video.thumbnail.large} />
+
+        <h2>{video.title}</h2>
+        <p>{video.description}</p>
+    </div>
+);
+
+const VideoList = () => {
     const data = useStaticQuery(query);
     const videos: Video[] = data.allVimeoVideo.nodes;
 
     return (
-        <div>
-            {videos.map((video: Video) => {
-                console.log(
-                    video.url
-                        .replace('https://', 'https://player.')
-                        .replace('.com/', '.com/video/')
-                );
-                return (
-                    <div key={video.date}>
-                        <EmbeddedVideo
-                            title={video.title}
-                            allow="autoplay; fullscreen"
-                            src={video.url
-                                .replace('https://', 'https://player.')
-                                .replace('.com/', '.com/video/')}
-                        />
-
-                        <h2>{video.title}</h2>
-                        <p>{video.description}</p>
-                    </div>
-                );
-            })}
+        <div css={styles.root}>
+            {videos.map((video: Video) => (
+                <VideoComponent key={video.date} video={video} />
+            ))}
         </div>
     );
 };
 
-export default VideoComponent;
+export default VideoList;

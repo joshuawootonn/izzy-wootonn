@@ -14,7 +14,6 @@ const Sidebar = styled.div`
     width: 160px;
     height: 100vh;
     padding: 0px 16px;
-    position: fixed;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;

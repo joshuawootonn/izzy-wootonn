@@ -3,8 +3,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-    margin-left: 300px;
     width: auto;
+    padding: 20px;
 `;
 export interface Props {
     children: React.ReactElement | React.ReactElement[];

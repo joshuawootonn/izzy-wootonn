@@ -1,15 +1,9 @@
-import React from 'react';
+import { useEffect } from 'react';
+import { navigate } from 'gatsby';
 
-import Layout from '../components/layout';
-import SEO from '../components/seo';
-import VideoList from '../components/videoList';
-
-const IndexPage = () => (
-    <Layout>
-        <SEO title="Work" />
-        <h1>Work</h1>
-        <VideoList />
-    </Layout>
-);
-
-export default IndexPage;
+export default () => {
+    useEffect(() => {
+        navigate('/film/');
+    }, []);
+    return null;
+};
