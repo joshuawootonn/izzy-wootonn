@@ -7,6 +7,9 @@ module.exports = {
     author: `Joshua Wootonn`,
   },
   plugins: [
+
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-typescript`,
     `gatsby-plugin-react-helmet`,

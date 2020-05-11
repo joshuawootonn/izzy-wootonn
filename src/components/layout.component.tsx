@@ -25,9 +25,8 @@ const GlobalStyles = createGlobalStyle`
 
 const theme: Theme = {
     colors: {
-        light: '#D9B8C4',
-        medium: '#957186',
-        dark: '#703D57',
+        light: '#FFD6CC',
+        dark: '#d18d82',
         black: '#2D232E',
         white: '#ffffff',
         grey: '#C49799',
