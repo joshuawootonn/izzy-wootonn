@@ -10,9 +10,10 @@ import { StyledThemeProp as STP } from '../constants/types';
 
 const SidebarComponent2 = styled.div`
     background: ${(props: STP) => props.theme.colors.light};
-    margin-bottom: 1.45rem;
-    width: 160px;
+
+    width: 192px;
     height: 100vh;
+    position: fixed;
     padding: 0px 16px;
     display: flex;
     justify-content: space-between;

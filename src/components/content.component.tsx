@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
     width: auto;
+    margin-left: 192px;
     padding: 20px;
 `;
 export interface Props {

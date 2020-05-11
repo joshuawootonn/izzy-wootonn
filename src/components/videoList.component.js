@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { css } from 'styled-components/macro';
-import { Video } from '../constants/types';
 import { navigate } from 'gatsby';
 import slugify from 'slugify';
 
@@ -14,7 +13,12 @@ const styles = {
     videoRoot: css``,
     image: css`
         width: 100%;
-        height: auto;
+        height: 0;
+        padding-top: 56.25%;
+        background-image: url("${({ url }) => url}");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
     `,
 };
 
@@ -36,17 +40,13 @@ const query = graphql`
     }
 `;
 
-interface VideoProps {
-    video: Video;
-}
-
-const VideoComponent: FC<VideoProps> = ({ video }) => (
+const VideoComponent = ({ video }) => (
     <div
         css={styles.videoRoot}
         key={video.date}
         onClick={() => navigate(`/film/${slugify(video.title)}`)}
     >
-        <img css={styles.image} src={video.thumbnail.large} />
+        <div css={styles.image} url={video.thumbnail.large} />
 
         <h2>{video.title}</h2>
         <p>{video.description}</p>
@@ -55,11 +55,10 @@ const VideoComponent: FC<VideoProps> = ({ video }) => (
 
 const VideoList = () => {
     const data = useStaticQuery(query);
-    const videos: Video[] = data.allVimeoVideo.nodes;
-
+    console.log(data);
     return (
         <div css={styles.root}>
-            {videos.map((video: Video) => (
+            {data.allVimeoVideo.nodes.map(video => (
                 <VideoComponent key={video.date} video={video} />
             ))}
         </div>
