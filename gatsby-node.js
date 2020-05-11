@@ -27,7 +27,7 @@ exports.createPages = async function({ actions, graphql }) {
         const slug = slugify(edge.node.title);
         actions.createPage({
             path: `/film/${slug}`,
-            component: require.resolve(`./src/templates/film.tsx`),
+            component: require.resolve(`./src/templates/film.template.tsx`),
             context: { slug: slug, id: edge.node.id, title: edge.node.title },
         });
     });

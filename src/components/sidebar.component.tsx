@@ -5,10 +5,10 @@ import styled from 'styled-components';
 
 import { Theme } from 'graphql-playground-html/dist/render-playground-page';
 import CopyToClipboard from 'react-copy-to-clipboard';
-import ProfileImage from './image';
+import ProfileImage from './image.component';
 import { StyledThemeProp as STP } from '../constants/types';
 
-const Sidebar = styled.div`
+const SidebarComponent2 = styled.div`
     background: ${(props: STP) => props.theme.colors.light};
     margin-bottom: 1.45rem;
     width: 160px;
@@ -60,7 +60,7 @@ const SidebarComponent = ({ siteTitle = '' }: Props) => {
         setTimeout(() => changeMessage(''), 1000);
     };
     return (
-        <Sidebar className="sidebar">
+        <SidebarComponent2 className="sidebar">
             <Section>
                 <h1>
                     <InternalLink to="/">{siteTitle}</InternalLink>
@@ -88,7 +88,7 @@ const SidebarComponent = ({ siteTitle = '' }: Props) => {
                     </Button>
                 </CopyToClipboard>
             </Section>
-        </Sidebar>
+        </SidebarComponent2>
     );
 };
 

@@ -1,18 +1,18 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
-import Layout from '../components/layout';
-import SEO from '../components/seo';
-import Image from '../components/image';
+import LayoutComponent from '../components/layout.component';
+import SeoComponent from '../components/seo.component';
+import ImageComponent from '../components/image.component';
 
 const About = () => (
-    <Layout>
-        <SEO title="About" />
+    <LayoutComponent>
+        <SeoComponent title="About" />
         <h1>About</h1>
 
         <div style={{ width: '720px' }}>
             <div style={{ width: '270px' }}>
-                <Image />
+                <ImageComponent />
             </div>
             <p>
                 Zachary Epcar (b. 1987, San Francisco) is a filmmaker whose work
@@ -27,7 +27,7 @@ const About = () => (
                 www.lightfieldfilm.org
             </p>
         </div>
-    </Layout>
+    </LayoutComponent>
 );
 
 export default About;

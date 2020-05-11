@@ -10,6 +10,6 @@ export interface Props {
     children: React.ReactElement | React.ReactElement[];
 }
 
-const Content = ({ children }: Props) => <Wrapper>{children}</Wrapper>;
+const ContentComponent = ({ children }: Props) => <Wrapper>{children}</Wrapper>;
 
-export default Content;
+export default ContentComponent;

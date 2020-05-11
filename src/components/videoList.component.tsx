@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import styled, { css } from 'styled-components/macro';
+import { css } from 'styled-components/macro';
 import { Video } from '../constants/types';
-
-import { Link, navigate } from 'gatsby';
+import { navigate } from 'gatsby';
 import slugify from 'slugify';
+
 const styles = {
     root: css`
         display: grid;

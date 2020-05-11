@@ -3,8 +3,8 @@ import React from 'react';
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 import { StaticQuery, graphql } from 'gatsby';
 
-import Sidebar from './sidebar';
-import Content from './content';
+import Sidebar from './sidebar.component';
+import ContentComponent from './content.component';
 import { Theme } from '../constants/types';
 
 const GlobalStyles = createGlobalStyle`
@@ -46,7 +46,7 @@ export interface Props {
     children: React.ReactElement | React.ReactElement[];
 }
 
-const Layout = ({ children }: Props) => (
+const LayoutComponent = ({ children }: Props) => (
     <StaticQuery
         query={graphql`
             query SiteTitleQuery {
@@ -62,11 +62,11 @@ const Layout = ({ children }: Props) => (
                 <Wrapper>
                     <GlobalStyles />
                     <Sidebar siteTitle={data.site.siteMetadata.title} />
-                    <Content children={children} />
+                    <ContentComponent children={children} />
                 </Wrapper>
             </ThemeProvider>
         )}
     />
 );
 
-export default Layout;
+export default LayoutComponent;

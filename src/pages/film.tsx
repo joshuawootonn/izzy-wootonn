@@ -1,15 +1,15 @@
 import React from 'react';
 
-import Layout from '../components/layout';
-import SEO from '../components/seo';
-import VideoList from '../components/videoList';
+import LayoutComponent from '../components/layout.component';
+import SeoComponent from '../components/seo.component';
+import VideoList from '../components/videoList.component';
 
 const Film = () => (
-    <Layout>
-        <SEO title="Work" />
+    <LayoutComponent>
+        <SeoComponent title="Work" />
         <h1>Film</h1>
         <VideoList />
-    </Layout>
+    </LayoutComponent>
 );
 
 export default Film;
