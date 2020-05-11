@@ -1,12 +1,13 @@
-import React, { FC } from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
+import React from 'react';
 import { css } from 'styled-components/macro';
 import { navigate } from 'gatsby';
 import slugify from 'slugify';
 import Img from 'gatsby-image';
+import dimensions from '../constants/dimensions';
 
 const styles = {
     root: css`
+        margin-top: ${dimensions.header}px;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         grid-gap: 20px;
@@ -28,31 +29,6 @@ const styles = {
     `,
 };
 
-const query = graphql`
-    {
-        allVimeoVideo {
-            nodes {
-                url
-                title
-                thumbnail {
-                    large
-                }
-                img {
-                    childImageSharp {
-                        fluid {
-                            ...GatsbyImageSharpFluid_withWebp
-                        }
-                    }
-                }
-                duration
-                description
-                date
-                iframe
-            }
-        }
-    }
-`;
-
 const VideoComponent = ({ video }) => (
     <div css={styles.videoRoot} key={video.date}>
         <div
@@ -66,16 +42,12 @@ const VideoComponent = ({ video }) => (
     </div>
 );
 
-const VideoList = () => {
-    const data = useStaticQuery(query);
-    console.log(data);
-    return (
-        <div css={styles.root}>
-            {data.allVimeoVideo.nodes.map(video => (
-                <VideoComponent key={video.date} video={video} />
-            ))}
-        </div>
-    );
-};
+const VideoList = ({ videos }) => (
+    <div css={styles.root}>
+        {videos.map(video => (
+            <VideoComponent key={video.date} video={video} />
+        ))}
+    </div>
+);
 
 export default VideoList;
