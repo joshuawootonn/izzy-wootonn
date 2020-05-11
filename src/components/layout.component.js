@@ -4,14 +4,6 @@ import { graphql, useStaticQuery } from 'gatsby';
 import HeaderComponent from './header.component';
 
 const GlobalStyles = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
-
-  html {
-    font-family: sans-serif;
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
-    font-family: 'Quicksand', sans-serif;
-  }
   body {
     margin: 0;
     -webkit-font-smoothing: antialiased;
