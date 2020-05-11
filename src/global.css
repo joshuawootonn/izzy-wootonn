@@ -1,0 +1,16 @@
+h1,h2,h3,h4,p {
+    margin-bottom: 0;
+    font-weight: 400;
+}
+
+@font-face{
+    font-family:"lemonmilk-regular";
+    src:url('./static/LemonMilkLight.otf') format("woff"),
+    url('./static/LemonMilkLight.otf') format("opentype"),
+    url('./static/LemonMilkLight.otf') format("truetype");
+}
+
+* {
+    box-sizing: border-box;
+    font-family:"lemonmilk-regular"
+}
