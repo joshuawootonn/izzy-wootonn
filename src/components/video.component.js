@@ -8,20 +8,11 @@ const styles = {
         border: 0px;
     `,
 };
-const VideoComponent = ({ video }) => {
+const VideoComponent = ({ graphicDesign }) => {
     return (
         <div>
-            <iframe
-                css={styles.video}
-                title={video.title}
-                allow="autoplay; fullscreen"
-                src={video.url
-                    .replace('https://', 'https://player.')
-                    .replace('.com/', '.com/video/')}
-            />
-
-            <h2>{video.title}</h2>
-            <p>{video.description}</p>
+            <h2>{graphicDesign.title}</h2>
+            <p>{graphicDesign.description.internal.content}</p>
         </div>
     );
 };
