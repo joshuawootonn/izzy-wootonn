@@ -60,7 +60,7 @@ exports.createPages = async function({ actions, graphql }) {
         });
     });
     allContentfulGraphicDesign.edges.forEach(edge => {
-        const rootRoute = slugify('graphicDesign');
+        const rootRoute = slugify('graphic-design');
         const slug = slugify(edge.node.title);
         console.log(slug);
         actions.createPage({

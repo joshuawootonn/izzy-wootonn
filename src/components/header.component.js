@@ -10,7 +10,7 @@ const styles = {
         height: ${dimensions.header}px;
         display: flex;
         flex-direction: row;
-        justify-content: flex-start;
+        justify-content: space-between;
         position: fixed;
         z-index: ${zIndex.header};
         width: 100vw;
@@ -42,6 +42,10 @@ const HeaderComponent = props => {
                     fluid={data.file.childImageSharp.fluid}
                 />
             </Link>
+            <div>
+                <Link to="/film">Film</Link>
+                <Link to="/graphic-design">Design</Link>
+            </div>
         </div>
     );
 };

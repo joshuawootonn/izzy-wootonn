@@ -52,7 +52,7 @@ const GraphicDesignComponent = ({
     <div css={styles.pageContainer}>
         <div
             css={styles.imageContainer}
-            onClick={() => navigate(`/graphicDesign/${slugify(title)}`)}
+            onClick={() => navigate(`/graphic-design/${slugify(title)}`)}
         >
             <Img css={styles.image} fluid={media[0].fluid} />
         </div>
