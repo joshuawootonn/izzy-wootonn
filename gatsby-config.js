@@ -7,7 +7,6 @@ module.exports = {
     author: `Joshua Wootonn`,
   },
   plugins: [
-
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-styled-components`,
@@ -40,6 +39,13 @@ module.exports = {
         clientID: process.env.VIMEO_CLIENT_ID,
         clientSecret: process.env.VIMEO_CLIENT_SECRET,
         userID: 1953551,
+      },
+    },
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
       },
     },
   ],
