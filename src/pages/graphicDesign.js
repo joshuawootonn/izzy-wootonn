@@ -18,7 +18,7 @@ export const query = graphql`
                 }
                 media {
                     id
-                    fluid {
+                    fluid(maxWidth: 2000, quality: 100) {
                         ...GatsbyContentfulFluid_withWebp
                     }
                 }

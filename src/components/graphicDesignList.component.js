@@ -1,30 +1,41 @@
 import React from 'react';
 import { css } from 'styled-components/macro';
+import Img from 'gatsby-image';
 import { navigate } from 'gatsby';
 import slugify from 'slugify';
-import Img from 'gatsby-image';
-import dimensions from '../constants/dimensions';
 
 const styles = {
     root: css`
-        margin-top: ${dimensions.header}px;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-gap: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     `,
-    videoRoot: css``,
+    pageContainer: css`
+        min-height: 100vh;
+        width: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    `,
     imageContainer: css`
+        width: 100%;
+        max-height: 80vh;
+        max-width: 900px;
+        background-color: ${({ theme }) => theme.colors.light};
+    `,
+    image: css`
+        transition: all 0.5s ease;
+        width: auto;
+        max-height: 100%;
+
         cursor: pointer;
-        transition: all 200ms ease;
-        background: ${({ theme }) => theme.colors.light};
-        & > div {
-            transition: all 0.5s ease;
-            opacity: 1;
-            filter: blur(0.01px);
-        }
-        &:hover > div {
+
+        filter: blur(0px);
+
+        &:hover {
             opacity: 0.6;
-            filter: blur(2px);
+            filter: blur(1px);
         }
     `,
 };
@@ -37,32 +48,27 @@ const GraphicDesignComponent = ({
         },
         media,
     },
-}) => {
-    console.log(media, content);
-    return (
-        <div css={styles.videoRoot}>
-            <div
-                // onClick={() => navigate(`/film/${slugify(video.title)}`)}
-                css={styles.imageContainer}
-            >
-                <Img fluid={media[0].fluid} />
-            </div>
+}) => (
+    <div css={styles.pageContainer}>
+        <div
+            css={styles.imageContainer}
+            onClick={() => navigate(`/graphicDesign/${slugify(title)}`)}
+        >
+            <Img css={styles.image} fluid={media[0].fluid} />
         </div>
-    );
-};
+    </div>
+);
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-const GraphicDesignList = ({ graphicDesigns }) => {
-    return (
-        <div css={styles.root}>
-            {graphicDesigns.map(graphicDesign => (
-                <GraphicDesignComponent
-                    key={graphicDesign.id}
-                    graphicDesign={graphicDesign}
-                />
-            ))}
-        </div>
-    );
-};
+const GraphicDesignList = ({ graphicDesigns }) => (
+    <div css={styles.root}>
+        {graphicDesigns.map(graphicDesign => (
+            <GraphicDesignComponent
+                key={graphicDesign.id}
+                graphicDesign={graphicDesign}
+            />
+        ))}
+    </div>
+);
 
 export default GraphicDesignList;
