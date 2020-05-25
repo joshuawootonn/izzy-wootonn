@@ -1,7 +1,7 @@
 import React from 'react';
 import LayoutComponent from '../components/layout.component';
 import SeoComponent from '../components/seo.component';
-import VideoList from '../components/videoList.component';
+import VideoList from '../components/filmList.component';
 import { graphql } from 'gatsby';
 
 export const query = graphql`
