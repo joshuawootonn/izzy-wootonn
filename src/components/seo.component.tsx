@@ -17,7 +17,12 @@ export interface Props {
     title: string;
 }
 
-const SeoComponent = ({ description = '', lang = 'en', meta = [], title }: Props) => {
+const SeoComponent = ({
+    description = '',
+    lang = 'en',
+    meta = [],
+    title,
+}: Props) => {
     const { site } = useStaticQuery(
         graphql`
             query {

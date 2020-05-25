@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import { navigate } from 'gatsby';
 
-export default () => {
+const Component = () => {
     useEffect(() => {
         navigate('/film/');
     }, []);
     return null;
 };
+export default Component;

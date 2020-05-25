@@ -27,6 +27,8 @@ module.exports = {
     '@typescript-eslint',
   ],
   rules: {
-    'react/prop-types': "off"
+    'react/prop-types': "off",
+    //https://github.com/typescript-eslint/typescript-eslint/issues/964
+    "@typescript-eslint/explicit-function-return-type": "off"
   },
 };

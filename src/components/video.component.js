@@ -8,13 +8,11 @@ const styles = {
         border: 0px;
     `,
 };
-const VideoComponent = ({ graphicDesign }) => {
-    return (
-        <div>
-            <h2>{graphicDesign.title}</h2>
-            <p>{graphicDesign.description.internal.content}</p>
-        </div>
-    );
-};
+const VideoComponent = ({ video }) => (
+    <div>
+        <h2>{video.title}</h2>
+        <p>{video.description}</p>
+    </div>
+);
 
 export default VideoComponent;

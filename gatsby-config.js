@@ -38,7 +38,7 @@ module.exports = {
       options: {
         clientID: process.env.VIMEO_CLIENT_ID,
         clientSecret: process.env.VIMEO_CLIENT_SECRET,
-        userID: 1953551,
+        userID: 114761472,
       },
     },
     {

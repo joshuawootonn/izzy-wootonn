@@ -29,7 +29,7 @@ const query = graphql`
     }
 `;
 
-const HeaderComponent = props => {
+const HeaderComponent = () => {
     const data = useStaticQuery(query);
     return (
         <div css={styles.root}>
@@ -44,7 +44,7 @@ const HeaderComponent = props => {
             </Link>
             <div>
                 <Link to="/film">Film</Link>
-                <Link to="/graphic-design">Design</Link>
+                <Link to="/about">About</Link>
             </div>
         </div>
     );
