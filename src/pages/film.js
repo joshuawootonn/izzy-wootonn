@@ -15,7 +15,7 @@ export const query = graphql`
                 }
                 img {
                     childImageSharp {
-                        fluid {
+                        fluid(maxWidth: 2000) {
                             ...GatsbyImageSharpFluid_withWebp
                         }
                     }
@@ -36,8 +36,7 @@ const Film = ({
 }) => {
     return (
         <LayoutComponent>
-            <SeoComponent title="Work" />
-
+            <SeoComponent title="Film" />
             <VideoList videos={videos} />
         </LayoutComponent>
     );

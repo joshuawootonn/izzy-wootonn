@@ -15,7 +15,7 @@ const styles = {
             margin-bottom: 67px;
         }
 
-        margin: 115px auto 0 auto;
+        margin: 0 auto;
         max-width: 645px;
         width: 100%;
     `,

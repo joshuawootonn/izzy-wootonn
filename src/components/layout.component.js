@@ -2,6 +2,7 @@ import React from 'react';
 import { ThemeProvider, createGlobalStyle, css } from 'styled-components/macro';
 import { graphql, useStaticQuery } from 'gatsby';
 import HeaderComponent from './header.component';
+import dimensions from '../constants/dimensions';
 
 const GlobalStyles = createGlobalStyle`
   body {
@@ -33,6 +34,7 @@ const styles = {
         width: auto;
         padding: 0 20px;
         position: relative;
+        margin-top: ${dimensions.header}px;
     `,
 };
 
@@ -53,7 +55,6 @@ const LayoutComponent = ({ children }) => {
         <ThemeProvider theme={theme}>
             <div css={styles.root}>
                 <GlobalStyles />
-                {/*<Sidebar siteTitle={data.site.siteMetadata.title} />*/}
                 <HeaderComponent />
                 <div css={styles.contentRoot}>{children}</div>
             </div>
