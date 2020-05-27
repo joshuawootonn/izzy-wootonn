@@ -3,6 +3,7 @@ import { css } from 'styled-components/macro';
 import React from 'react';
 import { typography, font } from './typography';
 import Img from 'gatsby-image';
+import { mobile } from './styles';
 const styles = {
     root: css`
         width: 100%;
@@ -12,6 +13,9 @@ const styles = {
         flex-direction: row;
     `,
     imageContainer: css`
+        ${mobile(css`
+            display: none;
+        `)};
         min-width: 455px;
         margin-right: 10px;
     `,
@@ -41,6 +45,9 @@ const styles = {
             text-decoration: none;
             color: black;
         }
+        ${mobile(css`
+            margin-bottom: 50px;
+        `)};
     `,
 };
 
