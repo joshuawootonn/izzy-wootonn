@@ -10,6 +10,11 @@ export const font = {
 };
 
 export const typography = {
+    mobileLinks: css`
+        font-size: 62px;
+        line-height: 85px;
+        color: ${({ theme }) => theme.colors.black};
+    `,
     title: css`
         font-size: 55px;
         line-height: 60px;
