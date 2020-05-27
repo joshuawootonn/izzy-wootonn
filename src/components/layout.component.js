@@ -30,7 +30,7 @@ const styles = {
         flex-direction: column;
         min-height: 100vh;
     `,
-    contentRoot: css`
+    contentContainer: css`
         width: auto;
         padding: 0 20px;
         position: relative;
@@ -56,7 +56,7 @@ const LayoutComponent = ({ children }) => {
             <div css={styles.root}>
                 <GlobalStyles />
                 <HeaderComponent />
-                <div css={styles.contentRoot}>{children}</div>
+                <div css={styles.contentContainer}>{children}</div>
             </div>
         </ThemeProvider>
     );

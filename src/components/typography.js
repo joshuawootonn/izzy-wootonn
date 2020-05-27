@@ -1,6 +1,25 @@
 import { css } from 'styled-components/macro';
 
-const typography = {
+export const font = {
+    primary: css`
+        font-family: 'lemonmilk-regular', serif;
+    `,
+    secondary: css`
+        font-family: 'worksans-regular', serif;
+    `,
+};
+
+export const typography = {
+    title: css`
+        font-size: 55px;
+        line-height: 60px;
+        color: ${({ theme }) => theme.colors.black};
+    `,
+    about: css`
+        font-size: 26px;
+        line-height: 28px;
+    `,
+
     largeText: css`
         font-size: 22px;
         line-height: 31px;
@@ -12,4 +31,3 @@ const typography = {
         color: ${({ theme }) => theme.colors.black};
     `,
 };
-export default typography;

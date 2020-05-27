@@ -4,7 +4,7 @@ import { navigate } from 'gatsby';
 import slugify from 'slugify';
 import Img from 'gatsby-image';
 import moment from 'moment';
-import typography from './typography';
+import { typography } from './typography';
 
 const styles = {
     root: css`
@@ -44,25 +44,22 @@ const styles = {
     `,
 };
 
-const VideoComponent = ({ video }) => {
-    console.log(video);
-    return (
-        <div css={styles.videoRoot} key={video.date}>
-            <div
-                onClick={() => navigate(`/film/${slugify(video.title)}`)}
-                css={styles.imageContainer}
-            >
-                <Img fluid={video.img.childImageSharp.fluid} />
-            </div>
-            <div css={styles.row}>
-                <h2 css={typography.largeText}>{video.title}</h2>
-                <p css={typography.smallText}>
-                    {moment(video.date).format('MMM YYYY')}
-                </p>
-            </div>
+const VideoComponent = ({ video }) => (
+    <div css={styles.videoRoot} key={video.date}>
+        <div
+            onClick={() => navigate(`/film/${slugify(video.title)}`)}
+            css={styles.imageContainer}
+        >
+            <Img fluid={video.img.childImageSharp.fluid} />
         </div>
-    );
-};
+        <div css={styles.row}>
+            <h2 css={typography.largeText}>{video.title}</h2>
+            <p css={typography.smallText}>
+                {moment(video.date).format('MMM YYYY')}
+            </p>
+        </div>
+    </div>
+);
 
 const VideoList = ({ videos }) => (
     <div css={styles.root}>

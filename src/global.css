@@ -10,7 +10,14 @@ h1,h2,h3,h4,p {
     url('./static/LemonMilkRegular.otf') format("truetype");
 }
 
+@font-face{
+    font-family:"worksans-regular";
+    src:url('./static/WorkSans-Regular.ttf') format("woff"),
+    url('./static/WorkSans-Regular.ttf') format("opentype"),
+    url('./static/WorkSans-Regular.ttf') format("truetype");
+}
+
 * {
     box-sizing: border-box;
-    font-family:"lemonmilk-regular"
+    font-family:"lemonmilk-regular";
 }

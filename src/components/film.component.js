@@ -1,10 +1,8 @@
 import { css } from 'styled-components/macro';
-import React, { useState } from 'react';
-import { Link, navigate } from 'gatsby';
-import Img from 'gatsby-image';
-import typography from './typography';
+import React from 'react';
+import { Link } from 'gatsby';
+import { typography } from './typography';
 import moment from 'moment';
-import slugify from 'slugify';
 
 const styles = {
     root: css`
@@ -54,6 +52,16 @@ const styles = {
             filter: blur(2px);
         }
     `,
+    iframeContainer: css`
+        position: relative;
+        width: 933px;
+        padding-bottom: 56.25%;
+    `,
+    iframe: css`
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    `,
 };
 const FilmComponent = ({ video, onPrevious, onNext }) => {
     return (
@@ -64,15 +72,16 @@ const FilmComponent = ({ video, onPrevious, onNext }) => {
                     {moment(video.date).format('MMM YYYY')}
                 </p>
             </div>
-            <iframe
-                src={`https://player.vimeo.com/video/${video.id}?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=152425`}
-                width="933"
-                height="527.4"
-                frameBorder="0"
-                allow="autoplay; fullscreen"
-                allowFullScreen
-                title="(dis)connect"
-            />
+            <div css={styles.iframeContainer}>
+                <iframe
+                    src={`https://player.vimeo.com/video/${video.id}?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=152425`}
+                    css={styles.iframe}
+                    frameBorder="0"
+                    allow="autoplay; fullscreen"
+                    allowFullScreen
+                    title="(dis)connect"
+                />
+            </div>
             <div css={styles.descriptionRow}>
                 <p>{video.description}</p>
             </div>

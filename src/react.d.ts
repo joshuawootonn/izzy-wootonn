@@ -4,7 +4,7 @@ import { CSSProp } from 'styled-components';
 
 declare module 'styled-components' {
     export interface DefaultTheme {
-x
+        // Your theme stuff here
     }
 }
 
