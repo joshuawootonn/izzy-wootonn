@@ -1,13 +1,15 @@
 import { css } from 'styled-components/macro';
 import React from 'react';
 import { Link } from 'gatsby';
-import { typography } from './typography';
+import { font, typography } from './typography';
 import moment from 'moment';
+import { desktop, mobile } from './styles';
 
 const styles = {
     root: css`
         display: flex;
         flex-direction: column;
+        justify-content: center;
 
         margin: 0 auto;
         max-width: 933px;
@@ -19,12 +21,21 @@ const styles = {
         justify-content: space-between;
         align-items: center;
         padding: 30px;
+        ${mobile(css`
+            padding: 10px 0;
+        `)};
         width: 100%;
         margin: 0;
     `,
     descriptionRow: css`
         padding: 30px;
-        min-height: 150px;
+
+        ${mobile(css`
+            padding: 10px 0;
+        `)};
+        ${desktop(css`
+            min-height: 150px;
+        `)};
     `,
     linkRow: css`
         display: flex;
@@ -32,6 +43,9 @@ const styles = {
         justify-content: space-between;
         align-items: center;
         padding: 30px;
+        ${mobile(css`
+            padding: 20px 0;
+        `)};
         a {
             text-decoration: none;
             color: black;
@@ -55,6 +69,9 @@ const styles = {
     iframeContainer: css`
         position: relative;
         width: 933px;
+        ${mobile(css`
+            width: 100%;
+        `)};
         padding-bottom: 56.25%;
     `,
     iframe: css`
@@ -83,7 +100,7 @@ const FilmComponent = ({ video, onPrevious, onNext }) => {
                 />
             </div>
             <div css={styles.descriptionRow}>
-                <p>{video.description}</p>
+                <p css={font.secondary}>{video.description}</p>
             </div>
             <div css={styles.linkRow}>
                 {onPrevious ? <Link to={onPrevious}>previous</Link> : <span />}
