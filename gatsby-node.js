@@ -24,27 +24,6 @@ exports.createPages = async function({ actions, graphql }) {
         }
     `);
 
-    const {
-        data: { allContentfulGraphicDesign },
-    } = await graphql(`
-        {
-            allContentfulGraphicDesign {
-                edges {
-                    previous {
-                        title
-                    }
-                    node {
-                        id
-                        title
-                    }
-                    next {
-                        title
-                    }
-                }
-            }
-        }
-    `);
-
     allVimeoVideo.edges.forEach(edge => {
         const slug = slugify(edge.node.title);
         actions.createPage({
@@ -55,26 +34,6 @@ exports.createPages = async function({ actions, graphql }) {
                 next: edge.next ? `/film/${slugify(edge.next.title)}` : null,
                 previous: edge.previous
                     ? `/film/${slugify(edge.previous.title)}`
-                    : null,
-            },
-        });
-    });
-    allContentfulGraphicDesign.edges.forEach(edge => {
-        const rootRoute = slugify('graphic-design');
-        const slug = slugify(edge.node.title);
-        console.log(slug);
-        actions.createPage({
-            path: `/${rootRoute}/${slug}`,
-            component: require.resolve(
-                `./src/templates/graphicDesign.template.js`
-            ),
-            context: {
-                id: edge.node.id.toString(),
-                next: edge.next
-                    ? `/${rootRoute}/${slugify(edge.next.title)}`
-                    : null,
-                previous: edge.previous
-                    ? `/${rootRoute}/${slugify(edge.previous.title)}`
                     : null,
             },
         });

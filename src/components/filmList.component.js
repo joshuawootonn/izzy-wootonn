@@ -3,20 +3,35 @@ import { css } from 'styled-components/macro';
 import { navigate } from 'gatsby';
 import slugify from 'slugify';
 import Img from 'gatsby-image';
-import dimensions from '../constants/dimensions';
+import moment from 'moment';
+import { typography } from './typography';
 
 const styles = {
     root: css`
-        margin-top: ${dimensions.header}px;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-gap: 20px;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        & > div {
+            margin-bottom: 67px;
+        }
+
+        margin: 0 auto;
+        max-width: 645px;
+        width: 100%;
     `,
     videoRoot: css``,
+    row: css`
+        display: flex;
+        flex-direction: row;
+        padding: 0 20px;
+        justify-content: space-between;
+        align-items: center;
+    `,
     imageContainer: css`
         cursor: pointer;
         transition: all 200ms ease;
         background: ${({ theme }) => theme.colors.light};
+        margin-bottom: 30px;
         & > div {
             transition: all 0.5s ease;
             opacity: 1;
@@ -37,8 +52,12 @@ const VideoComponent = ({ video }) => (
         >
             <Img fluid={video.img.childImageSharp.fluid} />
         </div>
-        <h2>{video.title}</h2>
-        <p>{video.description}</p>
+        <div css={styles.row}>
+            <h2 css={typography.largeText}>{video.title}</h2>
+            <p css={typography.smallText}>
+                {moment(video.date).format('MMM YYYY')}
+            </p>
+        </div>
     </div>
 );
 

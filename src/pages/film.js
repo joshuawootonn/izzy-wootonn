@@ -1,7 +1,7 @@
 import React from 'react';
 import LayoutComponent from '../components/layout.component';
 import SeoComponent from '../components/seo.component';
-import VideoList from '../components/videoList.component';
+import VideoList from '../components/filmList.component';
 import { graphql } from 'gatsby';
 
 export const query = graphql`
@@ -15,7 +15,7 @@ export const query = graphql`
                 }
                 img {
                     childImageSharp {
-                        fluid {
+                        fluid(maxWidth: 2000) {
                             ...GatsbyImageSharpFluid_withWebp
                         }
                     }
@@ -36,8 +36,7 @@ const Film = ({
 }) => {
     return (
         <LayoutComponent>
-            <SeoComponent title="Work" />
-
+            <SeoComponent title="Film" />
             <VideoList videos={videos} />
         </LayoutComponent>
     );

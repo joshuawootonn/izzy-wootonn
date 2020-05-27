@@ -1,3 +1,3 @@
 export default {
-    header: 70,
+    header: 100,
 };

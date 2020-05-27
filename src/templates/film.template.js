@@ -1,9 +1,8 @@
 import React from 'react';
-
 import LayoutComponent from '../components/layout.component';
 import SeoComponent from '../components/seo.component';
 import { graphql, Link } from 'gatsby';
-import VideoComponent from '../components/video.component';
+import FilmComponent from '../components/film.component';
 import { css } from 'styled-components/macro';
 
 const styles = {
@@ -11,7 +10,7 @@ const styles = {
         display: flex;
         justify-content: center;
         align-items: center;
-        flex-direction: row;
+        flex-direction: column;
         height: 100vh;
     `,
 };
@@ -23,6 +22,14 @@ export const query = graphql`
             title
             thumbnail {
                 large
+            }
+
+            img {
+                childImageSharp {
+                    fluid {
+                        ...GatsbyImageSharpFluid_withWebp
+                    }
+                }
             }
             duration
             description
@@ -36,14 +43,11 @@ export const query = graphql`
 const FilmTemplate = ({ data: { vimeoVideo }, pageContext }) => (
     <LayoutComponent>
         <SeoComponent title="Work" />
-        <div css={styles.root}>
-            {pageContext.previous && (
-                <Link to={pageContext.previous}>previous</Link>
-            )}
-            <VideoComponent video={vimeoVideo} />
-
-            {pageContext.next && <Link to={pageContext.next}>next</Link>}
-        </div>
+        <FilmComponent
+            video={vimeoVideo}
+            onNext={pageContext.next}
+            onPrevious={pageContext.previous}
+        />
     </LayoutComponent>
 );
 
