@@ -10,7 +10,8 @@ const styles = {
     root: css`
         display: flex;
         flex-direction: column;
-        padding: 20px;
+
+        padding: 0;
         & > div {
             margin-bottom: 67px;
         }
