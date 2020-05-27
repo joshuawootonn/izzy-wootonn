@@ -1,7 +1,7 @@
 import React from 'react';
 import { ThemeProvider, createGlobalStyle, css } from 'styled-components/macro';
 import { graphql, useStaticQuery } from 'gatsby';
-import HeaderComponent from './header.component';
+import HeaderComponent from './header/header.component';
 import dimensions from '../constants/dimensions';
 
 const GlobalStyles = createGlobalStyle`
@@ -29,11 +29,12 @@ const styles = {
         padding: 0;
         flex-direction: column;
         min-height: 100vh;
+        width: 100vw;
+        overflow-x: hidden;
     `,
     contentContainer: css`
         width: auto;
         padding: 0 20px;
-        position: relative;
         margin-top: ${dimensions.header}px;
     `,
 };

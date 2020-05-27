@@ -21,3 +21,9 @@ h1,h2,h3,h4,p {
     box-sizing: border-box;
     font-family:"lemonmilk-regular";
 }
+
+body {
+    width: 100vw;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
