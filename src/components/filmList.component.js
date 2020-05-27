@@ -5,6 +5,7 @@ import slugify from 'slugify';
 import Img from 'gatsby-image';
 import moment from 'moment';
 import { typography } from './typography';
+import { mobile } from './styles';
 
 const styles = {
     root: css`
@@ -25,6 +26,9 @@ const styles = {
         display: flex;
         flex-direction: row;
         padding: 0 20px;
+        ${mobile(css`
+            padding: 0;
+        `)}
         justify-content: space-between;
         align-items: center;
     `,
@@ -33,6 +37,11 @@ const styles = {
         transition: all 200ms ease;
         background: ${({ theme }) => theme.colors.light};
         margin-bottom: 30px;
+
+        ${mobile(css`
+            margin-bottom: 4px;
+        `)}
+
         & > div {
             transition: all 0.5s ease;
             opacity: 1;

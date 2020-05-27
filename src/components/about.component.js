@@ -27,6 +27,11 @@ const styles = {
     titleContainer: css`
         margin-top: 100px;
         margin-bottom: 32px;
+
+        ${mobile(css`
+            margin-top: 64px;
+            margin-bottom: 12px;
+        `)};
     `,
     highlight: css`
         color: ${({ theme }) => theme.colors.dark};
@@ -35,6 +40,9 @@ const styles = {
         ${typography.about};
         ${font.secondary};
         margin-bottom: 145px;
+        ${mobile(css`
+            margin-bottom: 24px;
+        `)};
     `,
     linkContainer: css`
         display: flex;
