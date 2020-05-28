@@ -3,6 +3,7 @@ import { Link as GatsbyLink } from 'gatsby';
 import { css } from 'styled-components/macro';
 import anime from 'animejs';
 import slugify from 'slugify';
+import { theme } from './layout.component';
 
 const styles = {
     root: css`
@@ -12,12 +13,15 @@ const styles = {
 
         text-decoration: none;
         color: ${({ theme }) => theme.colors.black};
-        text-shadow: 0 1em 0 ${({ theme }) => theme.colors.dark};
         user-select: none;
 
-        transition: text-shadow 150ms ease-in-out;
+        span {
+            transition: color 150ms ease-in-out;
+        }
         :active {
-            text-shadow: 0 1em 0 ${({ theme }) => theme.colors.light};
+            span {
+                color: ${({ theme }) => theme.colors.light} !important;
+            }
         }
     `,
     letter: css`
@@ -33,26 +37,27 @@ const Link = ({ children, ...props }) => {
     const focusAnimation = () => {
         return anime.timeline({ easing: 'linear' }).add({
             targets,
-            translateY: '-1em',
+            color: theme.colors.dark,
             duration: 150,
-            delay: anime.stagger(50, { easing: 'easeInOutCubic' }),
+            delay: anime.stagger(20, { easing: 'easeInOutCubic' }),
         });
     };
 
     const blurAnimation = () =>
         anime.timeline({ easing: 'linear' }).add({
             targets,
-            translateY: ['-1em', 0],
+            color: theme.colors.black,
             duration: 150,
-            delay: anime.stagger(50, { easing: 'easeInOutCubic' }),
+            delay: anime.stagger(20, { easing: 'easeInOutCubic' }),
         });
 
-    const renderLetters = () =>
-        children.split('').map((letter, i) => (
+    const renderLetters = () => {
+        return children.split('').map((letter, i) => (
             <span key={i} data-animate="link-letter" css={styles.letter}>
                 {letter}
             </span>
         ));
+    };
 
     return props.href ? (
         <a

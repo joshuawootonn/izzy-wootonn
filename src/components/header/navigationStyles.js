@@ -21,5 +21,18 @@ export default {
     logo: css`
         width: 155px;
         height: auto;
+        path {
+            transition: all ease-in-out 150ms;
+        }
+        :hover {
+            path {
+                fill: ${({ theme }) => theme.colors.dark};
+            }
+        }
+        :active {
+            path {
+                fill: ${({ theme }) => theme.colors.light};
+            }
+        }
     `,
 };
