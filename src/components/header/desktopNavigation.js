@@ -1,8 +1,9 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import { Link as GatsbyLink } from 'gatsby';
 import Logo from '../../images/logo-bw.svg';
 import { css } from 'styled-components/macro';
 import navigationStyles from './navigationStyles';
+import Link from '../linkRoll.component';
 
 const styles = {
     root: css`
@@ -19,16 +20,18 @@ const styles = {
     `,
 };
 
-const DesktopNavigation = () => (
-    <div css={[navigationStyles.root, styles.root]}>
-        <Link to="/film">
-            <Logo css={navigationStyles.logo} />
-        </Link>
-        <div css={styles.linkBox}>
-            <Link to="/film">Film</Link>
-            <Link to="/about">About</Link>
+const DesktopNavigation = () => {
+    return (
+        <div css={[navigationStyles.root, styles.root]}>
+            <GatsbyLink to="/film">
+                <Logo css={navigationStyles.logo} />
+            </GatsbyLink>
+            <div css={styles.linkBox}>
+                <Link to="/film">Film</Link>
+                <Link to="/about">About</Link>
+            </div>
         </div>
-    </div>
-);
+    );
+};
 
 export default DesktopNavigation;

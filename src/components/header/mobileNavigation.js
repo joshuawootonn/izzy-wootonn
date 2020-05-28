@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Link } from 'gatsby';
+import Link from '../linkRoll.component';
+import { Link as GatsbyLink } from 'gatsby';
 import Logo from '../../images/logo-bw.svg';
 import BurgerButton from '../burgerButton.component';
 import { css } from 'styled-components/macro';
@@ -39,6 +40,9 @@ const styles = {
             text-decoration: none;
             color: black;
             margin-left: 20px;
+            &:not(:last-child) {
+                margin-bottom: 20px;
+            }
         }
     `,
 };
@@ -70,9 +74,9 @@ const MobileNavigation = () => {
     return (
         <>
             <div css={[navigationStyles.root, styles.root]}>
-                <Link css={navigationStyles.logoContainer} to="/film">
+                <GatsbyLink css={navigationStyles.logoContainer} to="/film">
                     <Logo css={navigationStyles.logo} />
-                </Link>
+                </GatsbyLink>
                 <BurgerButton isActive={isOpen} toggleActive={setOpen} />
             </div>
             <div

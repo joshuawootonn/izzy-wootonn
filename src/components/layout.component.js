@@ -12,7 +12,7 @@ const GlobalStyles = createGlobalStyle`
   }
 `;
 
-const theme = {
+export const theme = {
     colors: {
         light: '#FFD6CC',
         dark: '#d18d82',
