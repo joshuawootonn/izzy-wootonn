@@ -25,5 +25,6 @@ h1,h2,h3,h4,p {
 body {
     width: 100vw;
     overflow-x: hidden;
-    overflow-y: hidden;
+    padding: 0;
+    margin: 0;
 }

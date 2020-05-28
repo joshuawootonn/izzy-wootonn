@@ -41,7 +41,7 @@ const About = ({
         },
     },
 }) => {
-    console.log(bio);
+    console.log(resume);
     return (
         <LayoutComponent>
             <SeoComponent title="About" />
