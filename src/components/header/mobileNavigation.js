@@ -47,7 +47,7 @@ const styles = {
     `,
 };
 
-const MobileNavigation = () => {
+const MobileNavigation = props => {
     const [isOpen, _setOpen] = useState(false);
 
     const setOpen = isOpen => {
@@ -73,7 +73,7 @@ const MobileNavigation = () => {
     };
     return (
         <>
-            <div css={[navigationStyles.root, styles.root]}>
+            <div css={[navigationStyles.root, styles.root]} {...props}>
                 <GatsbyLink css={navigationStyles.logoContainer} to="/film">
                     <Logo css={navigationStyles.logo} />
                 </GatsbyLink>
@@ -83,6 +83,7 @@ const MobileNavigation = () => {
                 css={styles.activeRoot}
                 data-animate="mobile-active-root"
                 onClick={() => setOpen(false)}
+                {...props}
             >
                 <div css={styles.activeContent}>
                     <Link to="/film">Film</Link>

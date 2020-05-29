@@ -20,9 +20,9 @@ const styles = {
     `,
 };
 
-const DesktopNavigation = () => {
+const DesktopNavigation = props => {
     return (
-        <div css={[navigationStyles.root, styles.root]}>
+        <div css={[navigationStyles.root, styles.root]} {...props}>
             <GatsbyLink to="/film">
                 <Logo css={navigationStyles.logo} />
             </GatsbyLink>
