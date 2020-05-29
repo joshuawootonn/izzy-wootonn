@@ -1,11 +1,12 @@
 import React from 'react';
 import { css } from 'styled-components/macro';
-import { navigate } from 'gatsby';
 import slugify from 'slugify';
 import Img from 'gatsby-image';
 import moment from 'moment';
 import { typography } from './typography';
 import { mobile } from './styles';
+import { Link } from 'gatsby';
+import LinkFade from './linkFade.component';
 
 const styles = {
     root: css`
@@ -35,7 +36,7 @@ const styles = {
     imageContainer: css`
         cursor: pointer;
         transition: all 200ms ease;
-        background: ${({ theme }) => theme.colors.light};
+        background: ${({ theme }) => theme.colors.dark};
         margin-bottom: 30px;
 
         ${mobile(css`
@@ -49,21 +50,24 @@ const styles = {
         }
         &:hover > div {
             opacity: 0.6;
-            filter: blur(2px);
+            filter: blur(4px);
         }
     `,
 };
 
 const VideoComponent = ({ video }) => (
     <div css={styles.videoRoot} key={video.date}>
-        <div
-            onClick={() => navigate(`/film/${slugify(video.title)}`)}
-            css={styles.imageContainer}
-        >
-            <Img fluid={video.img.childImageSharp.fluid} />
-        </div>
+        <Link to={`/film/${slugify(video.title)}`}>
+            <div css={styles.imageContainer}>
+                <Img fluid={video.img.childImageSharp.fluid} />
+            </div>
+        </Link>
         <div css={styles.row}>
-            <h2 css={typography.largeText}>{video.title}</h2>
+            <h2 css={typography.largeText}>
+                <LinkFade to={`/film/${slugify(video.title)}`}>
+                    {video.title}
+                </LinkFade>
+            </h2>
             <p css={typography.smallText}>
                 {moment(video.date).format('MMM YYYY')}
             </p>
