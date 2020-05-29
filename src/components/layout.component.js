@@ -1,7 +1,7 @@
 import React from 'react';
 import { ThemeProvider, createGlobalStyle, css } from 'styled-components/macro';
 import { graphql, useStaticQuery } from 'gatsby';
-import HeaderComponent from './header.component';
+import HeaderComponent from './header/header.component';
 import dimensions from '../constants/dimensions';
 
 const GlobalStyles = createGlobalStyle`
@@ -12,7 +12,7 @@ const GlobalStyles = createGlobalStyle`
   }
 `;
 
-const theme = {
+export const theme = {
     colors: {
         light: '#FFD6CC',
         dark: '#d18d82',
@@ -25,15 +25,15 @@ const theme = {
 const styles = {
     root: css`
         display: flex;
-        margin: 0;
-        padding: 0;
         flex-direction: column;
         min-height: 100vh;
+        width: 100%;
+        position: relative;
+        overflow-x: hidden;
     `,
     contentContainer: css`
         width: auto;
         padding: 0 20px;
-        position: relative;
         margin-top: ${dimensions.header}px;
     `,
 };

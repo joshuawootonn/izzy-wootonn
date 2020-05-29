@@ -1,6 +1,6 @@
 import { css } from 'styled-components/macro';
 import React from 'react';
-import { Link } from 'gatsby';
+import Link from './linkFade.component';
 import { font, typography } from './typography';
 import moment from 'moment';
 import { desktop, mobile } from './styles';

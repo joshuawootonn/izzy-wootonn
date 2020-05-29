@@ -4,6 +4,8 @@ import React from 'react';
 import { typography, font } from './typography';
 import Img from 'gatsby-image';
 import { mobile } from './styles';
+import Link from './linkRoll.component';
+
 const styles = {
     root: css`
         width: 100%;
@@ -47,15 +49,14 @@ const styles = {
     linkContainer: css`
         display: flex;
         flex-direction: column;
-        a {
-            ${typography.about};
-            ${font.primary};
-            text-decoration: none;
-            color: black;
-        }
+
         ${mobile(css`
             margin-bottom: 50px;
         `)};
+
+        a {
+            ${[typography.about, font.primary]}
+        }
     `,
 };
 
@@ -78,10 +79,10 @@ const AboutComponent = ({
             </div>
             <p css={[styles.description]}>{bio}</p>
             <div css={styles.linkContainer}>
-                <a href={resume.file.url}>Resume</a>
-                <a href={vimeo}>Vimeo</a>
-                <a href={linkedIn}>Linked In</a>
-                <a href={insta}>Insta</a>
+                <Link href={resume.file.url}>Resume</Link>
+                <Link href={vimeo}>Vimeo</Link>
+                <Link href={linkedIn}>Linked In</Link>
+                <Link href={insta}>Insta</Link>
             </div>
         </div>
     </div>
