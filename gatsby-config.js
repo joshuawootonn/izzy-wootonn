@@ -3,8 +3,12 @@ require('dotenv').config();
 module.exports = {
   siteMetadata: {
     title: `Izzy Wootonn`,
-    description: `Nice`,
-    author: `Joshua Wootonn`,
+    titleTemplate: "%s · Izzy Wootonn",
+    description: `Freelance Film Maker from Iowa`,
+    keywords: 'film, graphic design, iowa, iowa city, film maker, videographer, freelance, freelancer, freelance videographer, freelance film, freelance film maker, creative',
+    url: "https://www.izzywootonn.com",
+    image: "/seo.svg",
+    twitterUsername: `izzy_wootonn`,
   },
   plugins: [
     `gatsby-transformer-sharp`,
@@ -24,13 +28,14 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Izzy Wootonn`,
+        short_name: `Izzy Wootonn`,
+        description: 'Freelance Film Maker from Iowa',
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        background_color: `#ffffff`,
+        theme_color: `#d18d82`,
+        display: `standalone`,
+        icon: `static/favicon.png`,
       },
     },
     {

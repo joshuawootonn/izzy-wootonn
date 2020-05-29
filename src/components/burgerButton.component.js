@@ -71,6 +71,8 @@ const BurgerButton = ({ isActive, toggleActive }) => {
             onClick={() => {
                 toggleActive(!isActive);
             }}
+            aria-label="toggle-mobile-navigation"
+            aria-pressed={isActive ? 'true' : 'false'}
         >
             <svg
                 width={burgerSize}

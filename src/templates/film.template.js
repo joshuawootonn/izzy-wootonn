@@ -1,19 +1,8 @@
 import React from 'react';
 import LayoutComponent from '../components/layout.component';
 import SeoComponent from '../components/seo.component';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import FilmComponent from '../components/film.component';
-import { css } from 'styled-components/macro';
-
-const styles = {
-    root: css`
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        height: 100vh;
-    `,
-};
 
 export const query = graphql`
     query($id: String!) {
@@ -42,7 +31,10 @@ export const query = graphql`
 
 const FilmTemplate = ({ data: { vimeoVideo }, pageContext }) => (
     <LayoutComponent>
-        <SeoComponent title="Work" />
+        <SeoComponent
+            title={vimeoVideo.title}
+            description={vimeoVideo.description}
+        />
         <FilmComponent
             video={vimeoVideo}
             onNext={pageContext.next}

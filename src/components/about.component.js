@@ -4,7 +4,7 @@ import React from 'react';
 import { typography, font } from './typography';
 import Img from 'gatsby-image';
 import { mobile } from './styles';
-import Link from './linkRoll.component';
+import Link from './linkFade.component';
 
 const styles = {
     root: css`

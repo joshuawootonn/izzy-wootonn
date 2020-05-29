@@ -67,14 +67,6 @@ const Link = ({ children, ...props }) => {
             onMouseLeave={blurAnimation}
             onFocus={focusAnimation}
             onBlur={blurAnimation}
-            onTouchStart={e => {
-                e.preventDefault();
-                focusAnimation();
-            }}
-            onTouchEnd={e => {
-                e.preventDefault();
-                blurAnimation();
-            }}
             {...props}
         >
             {renderLetters()}
@@ -87,14 +79,6 @@ const Link = ({ children, ...props }) => {
             onMouseLeave={blurAnimation}
             onFocus={focusAnimation}
             onBlur={blurAnimation}
-            onTouchStart={e => {
-                e.preventDefault();
-                focusAnimation();
-            }}
-            onTouchEnd={e => {
-                e.preventDefault();
-                blurAnimation();
-            }}
             {...props}
         >
             {renderLetters()}

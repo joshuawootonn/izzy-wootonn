@@ -44,7 +44,7 @@ const About = ({
     console.log(resume);
     return (
         <LayoutComponent>
-            <SeoComponent title="About" />
+            <SeoComponent title="About" description={bio} />
             <AboutComponent
                 bio={bio}
                 profilePicture={profilePicture}
