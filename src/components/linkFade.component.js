@@ -54,7 +54,9 @@ const Link = ({ children, ...props }) => {
     const renderLetters = () => {
         return children.split('').map((letter, i) =>
             letter === ' ' ? (
-                <>&nbsp;</>
+                <span css={styles.letter} key={i}>
+                    &nbsp;
+                </span>
             ) : (
                 <span key={i} data-animate="link-letter" css={styles.letter}>
                     {letter}
