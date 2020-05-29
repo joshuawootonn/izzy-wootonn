@@ -17,7 +17,7 @@ const styles = {
 
         transition: text-shadow 150ms ease-in-out;
         :active {
-            text-shadow: 0 1em 0 ${({ theme }) => theme.colors.light};
+            text-shadow: 0 1em 0 ${({ theme }) => theme.colors.darkActive};
         }
     `,
     letter: css`
@@ -35,7 +35,7 @@ const Link = ({ children, ...props }) => {
             targets,
             translateY: '-1em',
             duration: 150,
-            delay: anime.stagger(50, { easing: 'easeInOutCubic' }),
+            delay: anime.stagger(50, { easing: 'linear' }),
         });
     };
 
@@ -44,15 +44,22 @@ const Link = ({ children, ...props }) => {
             targets,
             translateY: ['-1em', 0],
             duration: 150,
-            delay: anime.stagger(50, { easing: 'easeInOutCubic' }),
+            delay: anime.stagger(50, { easing: 'linear' }),
         });
 
-    const renderLetters = () =>
-        children.split('').map((letter, i) => (
-            <span key={i} data-animate="link-letter" css={styles.letter}>
-                {letter}
-            </span>
-        ));
+    const renderLetters = () => {
+        return children.split('').map((letter, i) =>
+            letter === ' ' ? (
+                <span css={styles.letter} key={i}>
+                    &nbsp;
+                </span>
+            ) : (
+                <span key={i} data-animate="link-letter" css={styles.letter}>
+                    {letter}
+                </span>
+            )
+        );
+    };
 
     return props.href ? (
         <a

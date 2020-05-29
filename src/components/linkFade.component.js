@@ -20,7 +20,7 @@ const styles = {
         }
         :active {
             span {
-                color: ${({ theme }) => theme.colors.light} !important;
+                color: ${({ theme }) => theme.colors.darkActive} !important;
             }
         }
     `,
@@ -31,7 +31,7 @@ const styles = {
 };
 
 const Link = ({ children, ...props }) => {
-    const slug = slugify(children);
+    const slug = slugify(children.replace(/\W/g, ''));
     const targets = `[data-animate=link-${slug}] [data-animate=link-letter]`;
 
     const focusAnimation = () => {
@@ -39,7 +39,7 @@ const Link = ({ children, ...props }) => {
             targets,
             color: theme.colors.dark,
             duration: 150,
-            delay: anime.stagger(20, { easing: 'easeInOutCubic' }),
+            delay: anime.stagger(20, { easing: 'linear' }),
         });
     };
 
@@ -48,15 +48,21 @@ const Link = ({ children, ...props }) => {
             targets,
             color: theme.colors.black,
             duration: 150,
-            delay: anime.stagger(20, { easing: 'easeInOutCubic' }),
+            delay: anime.stagger(20, { easing: 'linear' }),
         });
 
     const renderLetters = () => {
-        return children.split('').map((letter, i) => (
-            <span key={i} data-animate="link-letter" css={styles.letter}>
-                {letter}
-            </span>
-        ));
+        return children.split('').map((letter, i) =>
+            letter === ' ' ? (
+                <span css={styles.letter} key={i}>
+                    &nbsp;
+                </span>
+            ) : (
+                <span key={i} data-animate="link-letter" css={styles.letter}>
+                    {letter}
+                </span>
+            )
+        );
     };
 
     return props.href ? (

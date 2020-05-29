@@ -40,21 +40,18 @@ const About = ({
             bio: { bio },
         },
     },
-}) => {
-    console.log(resume);
-    return (
-        <LayoutComponent>
-            <SeoComponent title="About" description={bio} />
-            <AboutComponent
-                bio={bio}
-                profilePicture={profilePicture}
-                vimeo={vimeo}
-                linkedIn={linkedIn}
-                resume={resume}
-                insta={insta}
-            />
-        </LayoutComponent>
-    );
-};
+}) => (
+    <LayoutComponent>
+        <SeoComponent title="About" description={bio} />
+        <AboutComponent
+            bio={bio}
+            profilePicture={profilePicture}
+            vimeo={vimeo}
+            linkedIn={linkedIn}
+            resume={resume}
+            insta={insta}
+        />
+    </LayoutComponent>
+);
 
 export default About;

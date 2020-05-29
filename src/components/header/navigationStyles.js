@@ -31,7 +31,7 @@ export default {
         }
         :active {
             path {
-                fill: ${({ theme }) => theme.colors.light};
+                fill: ${({ theme }) => theme.colors.darkActive};
             }
         }
     `,
