@@ -31,7 +31,10 @@ export const query = graphql`
 
 const FilmTemplate = ({ data: { vimeoVideo }, pageContext }) => (
     <LayoutComponent>
-        <SeoComponent title={vimeoVideo.title} />
+        <SeoComponent
+            title={vimeoVideo.title}
+            description={vimeoVideo.description}
+        />
         <FilmComponent
             video={vimeoVideo}
             onNext={pageContext.next}

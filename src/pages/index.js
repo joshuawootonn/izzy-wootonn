@@ -36,7 +36,7 @@ const Film = ({
 }) => {
     return (
         <LayoutComponent>
-            <SeoComponent title="Index" />
+            <SeoComponent title="Film" />
             <VideoList videos={videos} />
         </LayoutComponent>
     );
