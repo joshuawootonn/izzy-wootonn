@@ -3,6 +3,7 @@ import { ThemeProvider, createGlobalStyle, css } from 'styled-components/macro';
 import { graphql, useStaticQuery } from 'gatsby';
 import HeaderComponent from './header/header.component';
 import dimensions from '../constants/dimensions';
+import { desktop, mobile } from './styles';
 
 const GlobalStyles = createGlobalStyle`
   body {
@@ -32,9 +33,18 @@ const styles = {
         overflow-x: hidden;
     `,
     contentContainer: css`
+        display: flex;
         width: auto;
         padding: 0 20px;
-        margin-top: ${dimensions.header}px;
+
+        ${mobile(css`
+            margin-top: ${dimensions.mobile.header}px;
+            height: calc(100vh - ${dimensions.mobile.header}px);
+        `)};
+        ${desktop(css`
+            margin-top: ${dimensions.header}px;
+            height: calc(100vh -${dimensions.header}px);
+        `)};
     `,
 };
 

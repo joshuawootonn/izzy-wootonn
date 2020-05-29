@@ -9,7 +9,8 @@ const styles = {
     root: css`
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
+        height: 100%;
 
         margin: 0 auto;
         max-width: 933px;

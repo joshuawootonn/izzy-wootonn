@@ -22,6 +22,8 @@ h1,h2,h3,h4,p {
     font-family:"lemonmilk-regular";
 }
 
+html { height:100%; }
+
 body {
     width: 100vw;
     overflow-x: hidden;
