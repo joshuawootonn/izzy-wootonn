@@ -83,7 +83,6 @@ const MobileNavigation = props => {
                 css={styles.activeRoot}
                 data-animate="mobile-active-root"
                 onClick={() => setOpen(false)}
-                {...props}
             >
                 <div css={styles.activeContent}>
                     <Link to="/film">Film</Link>
