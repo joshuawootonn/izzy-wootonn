@@ -2,9 +2,10 @@ require('dotenv').config();
 
 module.exports = {
   siteMetadata: {
-    title: `Izzy Wootonn`,
-    description: `Nice`,
-    author: `Joshua Wootonn`,
+    title: `Izzy Wootonn Film`,
+    description: `Freelance Film Maker from Iowa`,
+    keywords: 'film, graphic design, iowa, iowa city, film maker, videographer, freelance, freelancer, freelance videographer, freelance film, freelance film maker, creative',
+    author: `https://www.joshuawootonn.com`,
   },
   plugins: [
     `gatsby-transformer-sharp`,

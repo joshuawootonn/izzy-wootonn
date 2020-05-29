@@ -74,7 +74,7 @@ const MobileNavigation = props => {
     return (
         <>
             <div css={[navigationStyles.root, styles.root]} {...props}>
-                <GatsbyLink css={navigationStyles.logoContainer} to="/film">
+                <GatsbyLink css={navigationStyles.logoContainer} to="/">
                     <Logo css={navigationStyles.logo} />
                 </GatsbyLink>
                 <BurgerButton isActive={isOpen} toggleActive={setOpen} />
@@ -85,7 +85,7 @@ const MobileNavigation = props => {
                 onClick={() => setOpen(false)}
             >
                 <div css={styles.activeContent}>
-                    <Link to="/film">Film</Link>
+                    <Link to="/">Film</Link>
                     <Link to="/about">About</Link>
                 </div>
             </div>

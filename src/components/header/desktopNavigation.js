@@ -23,11 +23,11 @@ const styles = {
 const DesktopNavigation = props => {
     return (
         <div css={[navigationStyles.root, styles.root]} {...props}>
-            <GatsbyLink to="/film">
+            <GatsbyLink to="/">
                 <Logo css={navigationStyles.logo} />
             </GatsbyLink>
             <div css={styles.linkBox}>
-                <Link to="/film">Film</Link>
+                <Link to="/">Film</Link>
                 <Link to="/about">About</Link>
             </div>
         </div>

@@ -31,6 +31,7 @@ const SeoComponent = ({
                         title
                         description
                         author
+                        keywords
                     }
                 }
             }
