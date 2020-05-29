@@ -7,7 +7,7 @@ module.exports = {
     description: `Freelance Film Maker from Iowa`,
     keywords: 'film, graphic design, iowa, iowa city, film maker, videographer, freelance, freelancer, freelance videographer, freelance film, freelance film maker, creative',
     url: "https://www.izzywootonn.com",
-    image: "/static/seo.svg",
+    image: "/seo.svg",
     twitterUsername: `izzy_wootonn`,
   },
   plugins: [
