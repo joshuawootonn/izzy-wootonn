@@ -5,16 +5,16 @@ h1,h2,h3,h4,p {
 
 @font-face{
     font-family:"lemonmilk-regular";
-    src:url('./static/LemonMilkRegular.otf') format("woff"),
-    url('./static/LemonMilkRegular.otf') format("opentype"),
-    url('./static/LemonMilkRegular.otf') format("truetype");
+    src:url('../static/LemonMilkRegular.otf') format("woff"),
+    url('../static/LemonMilkRegular.otf') format("opentype"),
+    url('../static/LemonMilkRegular.otf') format("truetype");
 }
 
 @font-face{
     font-family:"worksans-regular";
-    src:url('./static/WorkSans-Regular.ttf') format("woff"),
-    url('./static/WorkSans-Regular.ttf') format("opentype"),
-    url('./static/WorkSans-Regular.ttf') format("truetype");
+    src:url('../static/WorkSans-Regular.ttf') format("woff"),
+    url('../static/WorkSans-Regular.ttf') format("opentype"),
+    url('../static/WorkSans-Regular.ttf') format("truetype");
 }
 
 * {
