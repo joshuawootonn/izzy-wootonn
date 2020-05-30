@@ -25,6 +25,8 @@ export const query = graphql`
                     ...GatsbyContentfulFluid_withWebp
                 }
             }
+            emailTagLine
+            email
         }
     }
 `;
@@ -38,6 +40,8 @@ const About = ({
             resume,
             profilePicture,
             bio: { bio },
+            emailTagLine,
+            email,
         },
     },
 }) => (
@@ -50,6 +54,8 @@ const About = ({
             linkedIn={linkedIn}
             resume={resume}
             insta={insta}
+            email={email}
+            emailTagLine={emailTagLine}
         />
     </LayoutComponent>
 );
