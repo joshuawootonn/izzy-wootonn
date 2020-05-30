@@ -15,6 +15,14 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-typescript`,
+    {
+      resolve: "gatsby-plugin-google-tagmanager",
+      options: {
+        id: process.env.GOOGLE_TAG_MANAGER_ID,
+        includeInDevelopment: false,
+        defaultDataLayer: { platform: "gatsby" },
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
