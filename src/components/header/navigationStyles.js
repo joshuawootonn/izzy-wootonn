@@ -22,7 +22,7 @@ export default {
         width: 155px;
         height: auto;
         path {
-            transition: all ease-in-out 150ms;
+            transition: all ease-in-out 300ms;
         }
         :hover {
             path {
