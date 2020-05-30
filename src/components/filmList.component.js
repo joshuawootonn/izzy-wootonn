@@ -19,7 +19,7 @@ const styles = {
         }
 
         margin: 0 auto;
-        max-width: 645px;
+        max-width: 933px;
         width: 100%;
     `,
     videoRoot: css``,
@@ -29,7 +29,7 @@ const styles = {
         padding: 0 20px;
         ${mobile(css`
             padding: 0;
-        `)}
+        `)};
         justify-content: space-between;
         align-items: center;
     `,
