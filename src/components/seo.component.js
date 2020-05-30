@@ -50,9 +50,11 @@ const SeoComponent = ({
 
     return (
         <Helmet title={seo.title} titleTemplate={titleTemplate}>
+            <html lang="en" />
             <meta name="description" content={seo.description} />
             <meta name="keywords" content={keywords} />
             <meta name="image" content={seo.image} />
+            <meta name="author" content="https://www.joshuawootonn.com" />
             {seo.url && <meta property="og:url" content={seo.url} />}
             <meta property="og:type" content="website" />
             {seo.title && <meta property="og:title" content={templatedTitle} />}
@@ -61,6 +63,10 @@ const SeoComponent = ({
             )}
             {seo.image && <meta property="og:image" content={seo.image} />}
             <meta name="twitter:card" content="summary_large_image" />
+            <meta
+                name="twitter:site"
+                content={`https://twitter.com/${twitterUsername}`}
+            />
             {twitterUsername && (
                 <meta name="twitter:creator" content={twitterUsername} />
             )}

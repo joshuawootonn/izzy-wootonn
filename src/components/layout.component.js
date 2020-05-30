@@ -25,6 +25,10 @@ const GlobalStyles = createGlobalStyle`
         color: ${({ theme }) => theme.colors.white};
         background: ${({ theme }) => theme.colors.dark};
     }    
+    
+    .tippy-content {
+        color: ${({ theme }) => theme.colors.dark};
+    }
 `;
 
 export const theme = {
