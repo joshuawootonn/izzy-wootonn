@@ -18,7 +18,7 @@ const SeoComponent = ({
                         defaultTitle: title
                         titleTemplate
                         defaultDescription: description
-                        siteUrl: url
+                        siteUrl
                         defaultImage: image
                         twitterUsername
                         keywords
