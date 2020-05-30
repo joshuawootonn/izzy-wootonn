@@ -11,7 +11,7 @@ export default {
         justify-content: space-between;
         position: fixed;
         z-index: ${zIndex.header};
-        background-color: transparent;
+        background-color: ${({ theme }) => theme.colors.white};
 
         width: 100vw;
     `,
