@@ -16,7 +16,7 @@ module.exports = {
     description: `I love people + telling stories. I primarily do this with film, but sometimes through graphic design or photography.`,
     keywords: 'film, graphic design, iowa, iowa city, film maker, videographer, freelance, freelancer, freelance videographer, freelance film, freelance film maker, creative',
     image: "/seo.png",
-    twitterUsername: `izzy_wootonn`,
+    twitterUsername: `izcreat_ive`,
     siteUrl
   },
   plugins: [
@@ -45,7 +45,7 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `Izzy Wootonn`,
-        short_name: `Izzy Wootonn`,
+        short_name: `Iz Creative`,
         description: 'Freelance Film Maker from Iowa',
         start_url: `/`,
         background_color: `#ffffff`,
