@@ -11,7 +11,7 @@ export default {
         justify-content: space-between;
         position: fixed;
         z-index: ${zIndex.header};
-        background-color: transparent;
+        background-color: ${({ theme }) => theme.colors.white};
 
         width: 100vw;
     `,
@@ -22,7 +22,7 @@ export default {
         width: 155px;
         height: auto;
         path {
-            transition: all ease-in-out 150ms;
+            transition: all ease-in-out 300ms;
         }
         :hover {
             path {

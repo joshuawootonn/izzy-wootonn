@@ -3,7 +3,7 @@ import { Link as GatsbyLink } from 'gatsby';
 import Logo from '../../images/logo-bw.svg';
 import { css } from 'styled-components/macro';
 import navigationStyles from './navigationStyles';
-import Link from '../linkRoll.component';
+import Link from '../linkFade.component';
 
 const styles = {
     root: css`

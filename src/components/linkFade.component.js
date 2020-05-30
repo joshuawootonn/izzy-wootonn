@@ -9,14 +9,14 @@ const styles = {
     root: css`
         position: relative;
         overflow: hidden;
-        display: flex;
+        display: inline;
 
         text-decoration: none;
         color: ${({ theme }) => theme.colors.black};
         user-select: none;
 
         span {
-            transition: color 150ms ease-in-out;
+            transition: color 300ms ease-in-out;
         }
         :active {
             span {

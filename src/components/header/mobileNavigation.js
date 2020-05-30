@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Link from '../linkRoll.component';
+import Link from '../linkFade.component';
 import { Link as GatsbyLink } from 'gatsby';
 import Logo from '../../images/logo-bw.svg';
 import BurgerButton from '../burgerButton.component';

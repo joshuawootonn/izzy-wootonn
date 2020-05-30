@@ -24,16 +24,12 @@ const styles = {
     contentContainer: css`
         max-width: 455px;
         display: flex;
+        justify-content: center;
         flex-direction: column;
+        height: 100%;
     `,
     titleContainer: css`
-        margin-top: 100px;
         margin-bottom: 32px;
-
-        ${mobile(css`
-            margin-top: 64px;
-            margin-bottom: 12px;
-        `)};
     `,
     highlight: css`
         color: ${({ theme }) => theme.colors.dark};
@@ -41,22 +37,19 @@ const styles = {
     description: css`
         ${typography.about};
         ${font.secondary};
-        margin-bottom: 145px;
-        ${mobile(css`
-            margin-bottom: 24px;
-        `)};
+        margin-bottom: 32px;
     `,
     linkContainer: css`
-        display: flex;
-        flex-direction: column;
-
-        ${mobile(css`
-            margin-bottom: 50px;
-        `)};
-
+        margin-bottom: 32px;
         a {
-            ${[typography.about, font.primary]}
+            ${[typography.about, font.primary]};
         }
+    `,
+    email: css`
+        span {
+            ${[typography.about, font.secondary]};
+        }
+        margin-bottom: 32px;
     `,
 };
 
@@ -67,6 +60,8 @@ const AboutComponent = ({
     linkedIn,
     insta,
     resume,
+    emailTagLine,
+    email,
 }) => (
     <div css={styles.root}>
         <div css={styles.imageContainer}>
@@ -79,11 +74,51 @@ const AboutComponent = ({
             </div>
             <p css={[styles.description]}>{bio}</p>
             <div css={styles.linkContainer}>
-                <Link href={resume.file.url}>Resume</Link>
-                <Link href={vimeo}>Vimeo</Link>
-                <Link href={linkedIn}>Linked In</Link>
-                <Link href={insta}>Insta</Link>
+                <div>
+                    <Link
+                        href={resume.file.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Resume
+                    </Link>
+                </div>
+                <div>
+                    <Link
+                        href={vimeo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Vimeo
+                    </Link>
+                </div>
+                <div>
+                    <Link
+                        href={linkedIn}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Linked In
+                    </Link>
+                </div>
+                <div>
+                    <Link
+                        href={insta}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Insta
+                    </Link>
+                </div>
             </div>
+            <Link
+                css={styles.email}
+                href={`mailto:${email}`}
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                {emailTagLine}
+            </Link>
         </div>
     </div>
 );

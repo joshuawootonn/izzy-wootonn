@@ -19,7 +19,7 @@ const styles = {
         }
 
         margin: 0 auto;
-        max-width: 645px;
+        max-width: 933px;
         width: 100%;
     `,
     videoRoot: css``,
@@ -29,7 +29,7 @@ const styles = {
         padding: 0 20px;
         ${mobile(css`
             padding: 0;
-        `)}
+        `)};
         justify-content: space-between;
         align-items: center;
     `,
@@ -59,7 +59,7 @@ const VideoComponent = ({ video }) => (
     <div css={styles.videoRoot} key={video.date}>
         <Link to={`/film/${slugify(video.title)}`}>
             <div css={styles.imageContainer}>
-                <Img fluid={video.img.childImageSharp.fluid} />
+                <Img fluid={video.image.fluid} />
             </div>
         </Link>
         <div css={styles.row}>
