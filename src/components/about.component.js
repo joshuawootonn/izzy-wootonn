@@ -24,14 +24,12 @@ const styles = {
     contentContainer: css`
         max-width: 455px;
         display: flex;
+        justify-content: center;
         flex-direction: column;
     `,
     titleContainer: css`
-        margin-top: 100px;
         margin-bottom: 32px;
-
         ${mobile(css`
-            margin-top: 64px;
             margin-bottom: 12px;
         `)};
     `,
@@ -41,7 +39,7 @@ const styles = {
     description: css`
         ${typography.about};
         ${font.secondary};
-        margin-bottom: 145px;
+        margin-bottom: 45px;
         ${mobile(css`
             margin-bottom: 24px;
         `)};
@@ -79,10 +77,22 @@ const AboutComponent = ({
             </div>
             <p css={[styles.description]}>{bio}</p>
             <div css={styles.linkContainer}>
-                <Link href={resume.file.url}>Resume</Link>
-                <Link href={vimeo}>Vimeo</Link>
-                <Link href={linkedIn}>Linked In</Link>
-                <Link href={insta}>Insta</Link>
+                <Link
+                    href={resume.file.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Resume
+                </Link>
+                <Link href={vimeo} target="_blank" rel="noopener noreferrer">
+                    Vimeo
+                </Link>
+                <Link href={linkedIn} target="_blank" rel="noopener noreferrer">
+                    Linked In
+                </Link>
+                <Link href={insta} target="_blank" rel="noopener noreferrer">
+                    Insta
+                </Link>
             </div>
         </div>
     </div>
