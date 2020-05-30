@@ -4,7 +4,6 @@ import { graphql, useStaticQuery } from 'gatsby';
 import HeaderComponent from './header/header.component';
 import dimensions from '../constants/dimensions';
 import { desktop, mobile } from './styles';
-import Scrollbar from './Scrollbar';
 
 const GlobalStyles = createGlobalStyle`
     body {
@@ -32,7 +31,7 @@ export const theme = {
     colors: {
         light: '#FFD6CC',
         dark: '#d18d82',
-        darkActive: '#D8A097',
+        darkActive: '#a44a3d',
         black: '#2D232E',
         white: '#ffffff',
         grey: '#C49799',
@@ -48,9 +47,10 @@ const styles = {
         position: relative;
         overflow-x: hidden;
     `,
-    scrollbarContainer: css`
+    contentContainer: css`
         display: flex;
         width: auto;
+        padding: 0 20px;
 
         ${mobile(css`
             margin-top: ${dimensions.mobile.header}px;
@@ -58,11 +58,8 @@ const styles = {
         `)};
         ${desktop(css`
             margin-top: ${dimensions.header}px;
-            height: calc(100vh - ${dimensions.header}px);
+            height: calc(100vh -${dimensions.header}px);
         `)};
-    `,
-    contentContainer: css`
-        padding: 0 20px;
     `,
 };
 
@@ -84,10 +81,7 @@ const LayoutComponent = ({ children }) => {
             <div css={styles.root}>
                 <GlobalStyles />
                 <HeaderComponent />
-
-                <div css={styles.scrollbarContainer}>
-                    <Scrollbar>{children}</Scrollbar>
-                </div>
+                <div css={styles.contentContainer}>{children}</div>
             </div>
         </ThemeProvider>
     );
