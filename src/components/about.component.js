@@ -5,6 +5,8 @@ import { typography, font } from './typography';
 import Img from 'gatsby-image';
 import { mobile } from './styles';
 import Link from './linkFade.component';
+import Tippy from '@tippyjs/react';
+import { theme } from './layout.component';
 
 const styles = {
     root: css`
@@ -49,13 +51,15 @@ const styles = {
         margin-bottom: 32px;
     `,
     email: css`
-        span,
-        p {
-            ${[typography.about, font.primary]};
-        }
+        ${[typography.about, font.secondary]};
+        font-size: 18px;
+        cursor: pointer;
+        background-color: transparent;
+        border: none;
+        padding: 0;
     `,
     emailTag: css`
-        ${[typography.about, font.secondary]};
+        ${[typography.about, font.primary]};
     `,
 };
 
@@ -68,68 +72,84 @@ const AboutComponent = ({
     resume,
     emailTagLine,
     email,
-}) => (
-    <div css={styles.root}>
-        <div css={styles.imageContainer}>
-            <Img fluid={profilePicture.fluid} />
+}) => {
+    return (
+        <div css={styles.root}>
+            <div css={styles.imageContainer}>
+                <Img fluid={profilePicture.fluid} />
+            </div>
+            <div css={styles.contentContainer}>
+                <div css={styles.titleContainer}>
+                    <h1 css={[typography.title, styles.highlight]}>Izzy</h1>
+                    <h1 css={typography.title}>Wootonn</h1>
+                </div>
+                <p css={[styles.description]}>{bio}</p>
+                <div css={styles.emailContainer}>
+                    <p css={styles.emailTag}>{emailTagLine}</p>
+
+                    <Tippy
+                        trigger="click"
+                        placement="right"
+                        content="Copied!"
+                        style={{ color: theme.colors.darkActive }}
+                    >
+                        <button
+                            onClick={() => {
+                                const el = document.createElement('textarea');
+                                el.value = email;
+                                document.body.appendChild(el);
+                                el.select();
+                                document.execCommand('copy');
+                                document.body.removeChild(el);
+                            }}
+                            data-select="email-button"
+                            css={styles.email}
+                        >
+                            {email}
+                        </button>
+                    </Tippy>
+                </div>
+                <div css={styles.linkContainer}>
+                    <div>
+                        <Link
+                            href={resume.file.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Resume
+                        </Link>
+                    </div>
+                    <div>
+                        <Link
+                            href={vimeo}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Vimeo
+                        </Link>
+                    </div>
+                    <div>
+                        <Link
+                            href={linkedIn}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Linked In
+                        </Link>
+                    </div>
+                    <div>
+                        <Link
+                            href={insta}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Insta
+                        </Link>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div css={styles.contentContainer}>
-            <div css={styles.titleContainer}>
-                <h1 css={[typography.title, styles.highlight]}>Izzy</h1>
-                <h1 css={typography.title}>Wootonn</h1>
-            </div>
-            <p css={[styles.description]}>{bio}</p>
-            <div css={styles.emailContainer}>
-                <p css={styles.emailTag}>{emailTagLine}</p>
-                <Link
-                    css={styles.email}
-                    href={`mailto:${email}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    {email}
-                </Link>
-            </div>
-            <div css={styles.linkContainer}>
-                <div>
-                    <Link
-                        href={resume.file.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Resume
-                    </Link>
-                </div>
-                <div>
-                    <Link
-                        href={vimeo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Vimeo
-                    </Link>
-                </div>
-                <div>
-                    <Link
-                        href={linkedIn}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Linked In
-                    </Link>
-                </div>
-                <div>
-                    <Link
-                        href={insta}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Insta
-                    </Link>
-                </div>
-            </div>
-        </div>
-    </div>
-);
+    );
+};
 
 export default AboutComponent;
