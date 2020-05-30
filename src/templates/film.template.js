@@ -14,13 +14,22 @@ export const query = graphql`
             }
             date
             vimeoId
+            image {
+                file {
+                    url
+                }
+            }
         }
     }
 `;
 
 const FilmTemplate = ({ data: { contentfulFilm: video }, pageContext }) => (
     <LayoutComponent>
-        <SeoComponent title={video.title} description={video.description} />
+        <SeoComponent
+            title={video.title}
+            description={video.description.description}
+            image={video.image.file.url}
+        />
         <FilmComponent
             video={video}
             onNext={pageContext.next}

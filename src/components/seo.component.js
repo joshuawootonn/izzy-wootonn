@@ -3,7 +3,13 @@ import Helmet from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 import { useLocation } from '@reach/router';
 
-const SeoComponent = ({ description = '', lang = 'en', meta = [], title }) => {
+const SeoComponent = ({
+    description,
+    lang = 'en',
+    meta = [],
+    title,
+    image,
+}) => {
     const { site } = useStaticQuery(
         graphql`
             query {
@@ -34,9 +40,9 @@ const SeoComponent = ({ description = '', lang = 'en', meta = [], title }) => {
     } = site.siteMetadata;
 
     const seo = {
-        title: title || defaultTitle,
+        title: `${title} · Izzy Wootonn` || defaultTitle,
         description: description || defaultDescription,
-        image: `${siteUrl}${defaultImage}`,
+        image: image || `${siteUrl}${defaultImage}`,
         url: `${siteUrl}${pathname}`,
     };
 
