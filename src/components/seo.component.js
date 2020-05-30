@@ -18,7 +18,7 @@ const SeoComponent = ({
                         defaultTitle: title
                         titleTemplate
                         defaultDescription: description
-                        siteUrl: url
+                        siteUrl
                         defaultImage: image
                         twitterUsername
                         keywords
@@ -40,11 +40,13 @@ const SeoComponent = ({
     } = site.siteMetadata;
 
     const seo = {
-        title: `${title} · Izzy Wootonn` || defaultTitle,
+        title: title || defaultTitle,
         description: description || defaultDescription,
         image: image || `${siteUrl}${defaultImage}`,
         url: `${siteUrl}${pathname}`,
     };
+
+    const templatedTitle = `${seo.title} · Izzy Wootonn`;
 
     return (
         <Helmet title={seo.title} titleTemplate={titleTemplate}>
@@ -53,7 +55,7 @@ const SeoComponent = ({
             <meta name="image" content={seo.image} />
             {seo.url && <meta property="og:url" content={seo.url} />}
             <meta property="og:type" content="website" />
-            {seo.title && <meta property="og:title" content={seo.title} />}
+            {seo.title && <meta property="og:title" content={templatedTitle} />}
             {seo.description && (
                 <meta property="og:description" content={seo.description} />
             )}
@@ -62,7 +64,9 @@ const SeoComponent = ({
             {twitterUsername && (
                 <meta name="twitter:creator" content={twitterUsername} />
             )}
-            {seo.title && <meta name="twitter:title" content={seo.title} />}
+            {seo.title && (
+                <meta name="twitter:title" content={templatedTitle} />
+            )}
             {seo.description && (
                 <meta name="twitter:description" content={seo.description} />
             )}

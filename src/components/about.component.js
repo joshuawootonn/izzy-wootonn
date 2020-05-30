@@ -45,11 +45,17 @@ const styles = {
             ${[typography.about, font.primary]};
         }
     `,
-    email: css`
-        span {
-            ${[typography.about, font.secondary]};
-        }
+    emailContainer: css`
         margin-bottom: 32px;
+    `,
+    email: css`
+        span,
+        p {
+            ${[typography.about, font.primary]};
+        }
+    `,
+    emailTag: css`
+        ${[typography.about, font.secondary]};
     `,
 };
 
@@ -73,6 +79,17 @@ const AboutComponent = ({
                 <h1 css={typography.title}>Wootonn</h1>
             </div>
             <p css={[styles.description]}>{bio}</p>
+            <div css={styles.emailContainer}>
+                <p css={styles.emailTag}>{emailTagLine}</p>
+                <Link
+                    css={styles.email}
+                    href={`mailto:${email}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    {email}
+                </Link>
+            </div>
             <div css={styles.linkContainer}>
                 <div>
                     <Link
@@ -111,14 +128,6 @@ const AboutComponent = ({
                     </Link>
                 </div>
             </div>
-            <Link
-                css={styles.email}
-                href={`mailto:${email}`}
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                {emailTagLine}
-            </Link>
         </div>
     </div>
 );

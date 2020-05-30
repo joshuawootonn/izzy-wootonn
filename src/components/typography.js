@@ -20,10 +20,9 @@ export const typography = {
         color: ${({ theme }) => theme.colors.black};
     `,
     about: css`
-        font-size: 26px;
-        line-height: 28px;
+        font-size: 22px;
+        line-height: 24px;
     `,
-
     largeText: css`
         font-size: 22px;
         line-height: 31px;
