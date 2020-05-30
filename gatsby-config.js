@@ -4,7 +4,7 @@ module.exports = {
   siteMetadata: {
     title: `Izzy Wootonn`,
     titleTemplate: "%s · Izzy Wootonn",
-    description: `Freelance Film Maker from Iowa`,
+    description: `Freelance Filmmaker from Iowa`,
     keywords: 'film, graphic design, iowa, iowa city, film maker, videographer, freelance, freelancer, freelance videographer, freelance film, freelance film maker, creative',
     url: "https://www.izzywootonn.com",
     image: "/seo.svg",
