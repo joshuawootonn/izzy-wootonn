@@ -6,11 +6,25 @@ import dimensions from '../constants/dimensions';
 import { desktop, mobile } from './styles';
 
 const GlobalStyles = createGlobalStyle`
-  body {
-    margin: 0;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: themegrayscale;
-  }
+    body {
+        margin: 0;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: themegrayscale;
+    }    
+    *:focus {
+        outline-color:${({ theme }) => theme.colors.dark} !important;        
+    }
+    *:hover, *:active { 
+        outline: none; 
+    }
+    ::-moz-selection { /* Code for Firefox */
+        color: ${({ theme }) => theme.colors.white};
+        background: ${({ theme }) => theme.colors.dark};
+    }    
+    ::selection {
+        color: ${({ theme }) => theme.colors.white};
+        background: ${({ theme }) => theme.colors.dark};
+    }    
 `;
 
 export const theme = {
