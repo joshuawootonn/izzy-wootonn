@@ -23,10 +23,10 @@ const styles = {
     `,
     contentContainer: css`
         max-width: 455px;
+        min-height: 100%;
         display: flex;
         justify-content: center;
         flex-direction: column;
-        height: 100%;
     `,
     titleContainer: css`
         margin-bottom: 32px;
