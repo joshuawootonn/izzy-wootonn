@@ -4,10 +4,10 @@ module.exports = {
   siteMetadata: {
     title: `Izzy Wootonn`,
     titleTemplate: "%s · Izzy Wootonn",
-    description: `Freelance Filmmaker from Iowa`,
+    description: `I love people + telling stories. I primarily do this with film, but sometimes through graphic design or photography.`,
     keywords: 'film, graphic design, iowa, iowa city, film maker, videographer, freelance, freelancer, freelance videographer, freelance film, freelance film maker, creative',
     url: "https://www.izzywootonn.com",
-    image: "/seo.svg",
+    image: "/seo.png",
     twitterUsername: `izzy_wootonn`,
   },
   plugins: [
