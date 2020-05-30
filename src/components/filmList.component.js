@@ -59,7 +59,7 @@ const VideoComponent = ({ video }) => (
     <div css={styles.videoRoot} key={video.date}>
         <Link to={`/film/${slugify(video.title)}`}>
             <div css={styles.imageContainer}>
-                <Img fluid={video.img.childImageSharp.fluid} />
+                <Img fluid={video.image.fluid} />
             </div>
         </Link>
         <div css={styles.row}>

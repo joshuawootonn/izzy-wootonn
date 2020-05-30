@@ -6,37 +6,23 @@ import FilmComponent from '../components/film.component';
 
 export const query = graphql`
     query($id: String!) {
-        vimeoVideo(id: { eq: $id }) {
-            url
-            title
-            thumbnail {
-                large
-            }
-
-            img {
-                childImageSharp {
-                    fluid {
-                        ...GatsbyImageSharpFluid_withWebp
-                    }
-                }
-            }
-            duration
-            description
-            date
-            iframe
+        contentfulFilm(vimeoId: { eq: $id }) {
             id
+            title
+            description {
+                description
+            }
+            date
+            vimeoId
         }
     }
 `;
 
-const FilmTemplate = ({ data: { vimeoVideo }, pageContext }) => (
+const FilmTemplate = ({ data: { contentfulFilm: video }, pageContext }) => (
     <LayoutComponent>
-        <SeoComponent
-            title={vimeoVideo.title}
-            description={vimeoVideo.description}
-        />
+        <SeoComponent title={video.title} description={video.description} />
         <FilmComponent
-            video={vimeoVideo}
+            video={video}
             onNext={pageContext.next}
             onPrevious={pageContext.previous}
         />

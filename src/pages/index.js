@@ -6,24 +6,20 @@ import { graphql } from 'gatsby';
 
 export const query = graphql`
     {
-        allVimeoVideo {
+        allContentfulFilm(sort: { fields: [date], order: DESC }) {
             nodes {
-                url
+                id
                 title
-                thumbnail {
-                    large
+                description {
+                    description
                 }
-                img {
-                    childImageSharp {
-                        fluid(maxWidth: 2000) {
-                            ...GatsbyImageSharpFluid_withWebp
-                        }
+                date
+                vimeoId
+                image {
+                    fluid(maxWidth: 2000) {
+                        ...GatsbyContentfulFluid_tracedSVG
                     }
                 }
-                duration
-                description
-                date
-                iframe
             }
         }
     }
@@ -31,7 +27,7 @@ export const query = graphql`
 
 const Film = ({
     data: {
-        allVimeoVideo: { nodes: videos },
+        allContentfulFilm: { nodes: videos },
     },
 }) => {
     return (

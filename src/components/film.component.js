@@ -92,7 +92,7 @@ const FilmComponent = ({ video, onPrevious, onNext }) => {
             </div>
             <div css={styles.iframeContainer}>
                 <iframe
-                    src={`https://player.vimeo.com/video/${video.id}?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=152425`}
+                    src={`https://player.vimeo.com/video/${video.vimeoId}?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=152425`}
                     css={styles.iframe}
                     frameBorder="0"
                     allow="autoplay; fullscreen"
@@ -101,7 +101,7 @@ const FilmComponent = ({ video, onPrevious, onNext }) => {
                 />
             </div>
             <div css={styles.descriptionRow}>
-                <p css={font.secondary}>{video.description}</p>
+                <p css={font.secondary}>{video.description.description}</p>
             </div>
             <div css={styles.linkRow}>
                 {onPrevious ? <Link to={onPrevious}>previous</Link> : <span />}
