@@ -5,8 +5,6 @@ import { useLocation } from '@reach/router';
 
 const SeoComponent = ({
     description,
-    lang = 'en',
-    meta = [],
     title,
     image,
 }) => {
@@ -77,6 +75,7 @@ const SeoComponent = ({
                 <meta name="twitter:description" content={seo.description} />
             )}
             {seo.image && <meta name="twitter:image" content={seo.image} />}
+            <script async src="https://cdn.splitbee.io/sb.js"/>
         </Helmet>
     );
 };
